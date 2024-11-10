@@ -14,6 +14,6 @@ School management system using PHP and MySQL is a web-based application. Student
 # Student Management System Project Modules
 The three main users involved in this system are
 
-User(i.e. Students)
-Admin
-Teachers
+- User(i.e. Students)
+- Admin
+- Teachers
