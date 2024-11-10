@@ -19,4 +19,4 @@ The three main users involved in this system are
 - Teachers
 
  ## Home screen
- <img src="screen/screen1.png">
+ <img src="screen/1.png">
