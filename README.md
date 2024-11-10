@@ -11,3 +11,9 @@ School management system using PHP and MySQL is a web-based application. Student
 - Web Browser	          :  Mozilla, Google Chrome, IE8, OPERA
 - Software	            :  XAMPP / Wamp / Mamp/ Lamp (anyone)
 
+# Student Management System Project Modules
+The three main users involved in this system are
+
+User(i.e. Students)
+Admin
+Teachers
