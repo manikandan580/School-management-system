@@ -30,8 +30,23 @@ The three main users involved in this system are
  ## Admin Module Screen
  <img src="screen/3.png">
 
+ 
+
  # Student Module Screen
  <img src="screen/4.png">
 
 ## Teachers Moudle Screen 
 <img src="screen/5.png">
+
+
+# Admin login
+Username: admin
+Password: Test@123
+
+# Student login
+Username: sarita
+Password: Test@123
+
+# Teachers Credential
+Username: jhn12@gmail.com
+Password: Test@123
