@@ -47,6 +47,6 @@ The three main users involved in this system are
 - Username: sarita
 - Password: Test@123
 
-# Teachers Credential
-- Username: jhn12@gmail.com
+# Teachers login
+- EmailId: jhn12@gmail.com
 - Password: Test@123
