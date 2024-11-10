@@ -27,8 +27,8 @@ The three main users involved in this system are
  ## Admin Module Screen
  <img src="screen/3.png">
 
- # Teacher Module Screen
+ # Student Module Screen
  <img src="screen/4.png">
 
-## Student Moudle Screen 
+## Teachers Moudle Screen 
 <img src="screen/5.png">
