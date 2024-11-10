@@ -20,3 +20,15 @@ The three main users involved in this system are
 
  ## Home screen
  <img src="screen/1.png">
+
+ ## login Screen
+ <img src="screen/2.png">
+
+ ## Admin Module Screen
+ <img src="screen/3.png">
+
+ # Teacher Module Screen
+ <img src="screen/4.png">
+
+## Student Moudle Screen 
+<img src="screen/5.png">
