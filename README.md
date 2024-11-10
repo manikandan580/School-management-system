@@ -17,3 +17,6 @@ The three main users involved in this system are
 - User(i.e. Students)
 - Admin
 - Teachers
+
+ ## Home screen
+ <img src="screen/screen1.png">
