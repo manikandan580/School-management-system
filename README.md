@@ -10,7 +10,7 @@ School management system using PHP and MySQL is a web-based application. Student
 
 # Project Requirements
 
-- Project Name          :	  Student Management System in php
+- Project Name          :	  School Management System in php
 - Language Used         : 	PHP5.6, PHP7.x
 - Database	            :   MySQL 5.x
 - User Interface Design :	HTML, AJAX,JQUERY,JAVASCRIPT
