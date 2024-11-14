@@ -53,3 +53,6 @@ The three main users involved in this system are
 # Teachers login
 - EmailId: jhn12@gmail.com
 - Password: Test@123
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=60&section=footer"/>
+</p>
