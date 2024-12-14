@@ -2,12 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['sturecmsaid'])==0)
+if(strlen($_SESSION['emplogin'])==0)
     {   
 header('location:index.php');
 }
 else{
-$eid=$_SESSION['sturecmsaid'];
+$eid=$_SESSION['emplogin'];
 if(isset($_POST['update']))
 {
 

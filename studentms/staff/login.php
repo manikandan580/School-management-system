@@ -16,7 +16,7 @@ $query-> bindParam(':password', $password, PDO::PARAM_STR);
     if($query->rowCount() > 0)
 {
 foreach ($results as $result) {
-$_SESSION['sturecmsaid']=$result->id;
+$_SESSION['emplogin']=$result->id;
 }
 
   if(!empty($_POST["remember"])) {

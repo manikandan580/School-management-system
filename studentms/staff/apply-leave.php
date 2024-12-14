@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['sturecmsaid'])==0)
+if(strlen($_SESSION['emplogin'])==0)
     {   
 header('location:index.php');
 }
@@ -48,20 +48,20 @@ $error="Something went wrong. Please try again";
     <head>
         
         <!-- Title -->
-        <title>Student  Management System|| Manage Result</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="vendors/select2/select2.min.css">
-    <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="css/style.css" />
+        <title>Employe | Apply Leave</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Steelcoders" />
+        
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
+        <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
   <style>
         .errorWrap {
     padding: 10px;
@@ -85,41 +85,30 @@ $error="Something went wrong. Please try again";
 
     </head>
     <body>
-    <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-     <?php include_once('includes/header.php');?>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial :partials/_sidebar.html -->
-        <?php include_once('includes/sidebar.php');?>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-             <div class="page-header">
-              <h3 class="page-title"> Apply Leave </h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Apply Leave</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="row">
-              <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-sm-flex align-items-center mb-4">
-                      <h4 class="card-title mb-sm-0">Apply Leave</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View </a>
+  <?php include('includes/header.php');?>
+            
+       <?php include('includes/sidebar.php');?>
+   <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Apply for Leave</div>
                     </div>
-                    <div class="table-responsive border rounded p-1">
-                      <table class="table">
+                    <div class="col s12 m12 l8">
+                        <div class="card">
+                            <div class="card-content">
+                                <form id="example-form" method="post" name="addemp">
+                                    <div>
+                                        <h3>Apply for Leave</h3>
+                                        <section>
+                                            <div class="wizard-content">
+                                                <div class="row">
+                                                    <div class="col m12">
+                                                        <div class="row">
      <?php if($error){?><div class="errorWrap"><strong>ERROR </strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
 
- <div class="form-group">
+ <div class="input-field col  s12">
 <select  name="leavetype" autocomplete="off">
 <option value="">Select leave type...</option>
 <?php $sql = "SELECT  LeaveType from tblleavetype";
@@ -136,19 +125,16 @@ foreach($results as $result)
 </select>
 </div>
 
-<form class="forms-sample" method="post">
 
-
-                      
-<div class="form-group">
+<div class="input-field col m6 s12">
 <label for="fromdate">From  Date</label>
 <input placeholder="" id="mask1" name="fromdate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
-<div class="form-group">
+<div class="input-field col m6 s12">
 <label for="todate">To Date</label>
 <input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
-<div class="form-group">
+<div class="input-field col m12 s12">
 <label for="birthdate">Description</label>    
 
 <textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
@@ -173,31 +159,14 @@ foreach($results as $result)
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-         <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="vendors/select2/select2.min.js"></script>
-    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="js/off-canvas.js"></script>
-    <script src="js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="js/typeahead.js"></script>
-    <script src="js/select2.js"></script>
-    <!-- End custom js for this page -->
+        <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="assets/js/alpha.min.js"></script>
+        <script src="assets/js/pages/form_elements.js"></script>
+          <script src="assets/js/pages/form-input-mask.js"></script>
+                <script src="assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
     </body>
 </html>
 <?php } ?> 

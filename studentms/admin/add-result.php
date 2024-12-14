@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['alogin'])=="")
+if(strlen($_SESSION['sturecmsaid'])==0)
     {   
     header("Location: index.php"); 
     }
@@ -26,7 +26,7 @@ array_push($sid1,$row['id']);
 for($i=0;$i<count($mark);$i++){
     $mar=$mark[$i];
   $sid=$sid1[$i];
-$sql="INSERT INTO  tblresult(StudentId,ClassId,SubjectId,marks) VALUES(:studentid,:class,:sid,:marks)";
+$sql="INSERT INTO  tblresult(studentid,ClassId,SubjectId,marks) VALUES(:studentid,:class,:sid,:marks)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':studentid',$studentid,PDO::PARAM_STR);
 $query->bindParam(':class',$class,PDO::PARAM_STR);

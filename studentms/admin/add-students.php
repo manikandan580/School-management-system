@@ -9,10 +9,11 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
   {
  $stuname=$_POST['stuname'];
  $stuemail=$_POST['stuemail'];
- $stuclass=$_POST['stuclass'];
+ 
+ $roolid=$_POST['rollid'];
  $gender=$_POST['gender'];
+ $classid=$_POST['class'];
  $dob=$_POST['dob'];
- $rollid=$_POST['rollid'];
  $stuid=$_POST['stuid'];
  $fname=$_POST['fname'];
  $mname=$_POST['mname'];
@@ -40,14 +41,15 @@ else
 {
 $image=md5($image).time().$extension;
  move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$image);
-$sql="insert into tblstudent(StudentName,StudentEmail,StudentClass,Gender,DOB,RollID,StuID,FatherName,MotherName,ContactNumber,AltenateNumber,Address,UserName,Password,Image)values(:stuname,:stuemail,:stuclass,:gender,:dob,:stuid,:fname,:mname,:connum,:altconnum,:address,:uname,:password,:image)";
+$sql="insert into tblstudent(StudentName,StudentEmail,RollId,Gender,ClassId,DOB,StuID,FatherName,MotherName,ContactNumber,AltenateNumber,Address,UserName,Password,Image)values(:stuname,:stuemail,:roolid,:gender,:classid,:dob,:stuid,:fname,:mname,:connum,:altconnum,:address,:uname,:password,:image)";
 $query=$dbh->prepare($sql);
 $query->bindParam(':stuname',$stuname,PDO::PARAM_STR);
 $query->bindParam(':stuemail',$stuemail,PDO::PARAM_STR);
-$query->bindParam(':stuclass',$stuclass,PDO::PARAM_STR);
+
+$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $query->bindParam(':stuid',$stuid,PDO::PARAM_STR);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':mname',$mname,PDO::PARAM_STR);
@@ -133,24 +135,33 @@ echo "<script>alert('Username or Student Id  already exist. Please try again');<
                         <label for="exampleInputName1">Student Email</label>
                         <input type="text" name="stuemail" value="" class="form-control" required='true'>
                       </div>
+                      
+
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Student Class</label>
-                        <select  name="stuclass" class="form-control" required='true'>
-                          <option value="">Select Class</option>
-                         <?php 
+                                                        <label for="default" class="col-sm-2 control-label">Class</label>
+                                                        <div class="col-sm-10">
+ <select name="class" class="form-control" id="default" required="required">
+<option value="">Select Class</option>
+<?php $sql = "SELECT * from tblclass";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{   ?>
+<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName); ?>&nbsp; Section-<?php echo htmlentities($result->Section); ?></option>
+<?php }} ?>
+ </select>
+                                                        </div>
+                                                    </div>
 
-$sql2 = "SELECT * from    tblclass ";
-$query2 = $dbh -> prepare($sql2);
-$query2->execute();
-$result2=$query2->fetchAll(PDO::FETCH_OBJ);
-
-foreach($result2 as $row1)
-{          
-    ?>  
-<option value="<?php echo htmlentities($row1->StudentId);?>"><?php echo htmlentities($row1->ClassName);?> <?php echo htmlentities($row1->Section);?></option>
- <?php } ?> 
-                        </select>
-                      </div>
+                      <div class="form-group">
+<label for="default" class="col-sm-2 control-label">Rool Id</label>
+<div class="col-sm-10">
+<input type="text" name="rollid" class="form-control" id="rollid" maxlength="5" required="required" autocomplete="off">
+</div>
+</div>
                       <div class="form-group">
                         <label for="exampleInputName1">Gender</label>
                         <select name="gender" value="" class="form-control" required='true'>
@@ -162,11 +173,6 @@ foreach($result2 as $row1)
                       <div class="form-group">
                         <label for="exampleInputName1">Date of Birth</label>
                         <input type="date" name="dob" value="" class="form-control" required='true'>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="exampleInputName1">RollID</label>
-                        <input type="text" name="rollid" value="" class="form-control" required='true'>
                       </div>
                      
                       <div class="form-group">

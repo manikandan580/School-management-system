@@ -3,7 +3,7 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['alogin'])=="")
+if(strlen($_SESSION['sturecmsaid'])==0)
     {   
     header("Location: index.php"); 
     }
@@ -110,7 +110,7 @@ else if($error){?>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT  distinct tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.ID,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblstudent.ID=tblresult.StudentId  join tblclass on tblclass.id=tblresult.ClassId";
+<?php $sql = "SELECT  distinct tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.StudentId ,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblstudent.StudentId =tblresult.StudentId  join tblclass on tblclass.id=tblresult.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

@@ -143,23 +143,14 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
                         <label for="exampleInputName1">Date of Birth</label>
                         <input type="date" name="dob" value="" class="form-control" required='true'>
                       </div>
-
-                     
-
-
-                        
-
-
-                      
-<div class="form-group">
+                      <div class="form-group">
                         <label for="exampleInputName1">Address</label>
-                        <input type="text" name="address" value="" class="form-control" required='true' maxlength="10" pattern="[0-9]+">
+                        <textarea name="address" value="" class="form-control" required='true'></textarea>
                       </div>
 
-
                       <div class="form-group">
-                        <label for="exampleInputName1">City/Town</label>
-                        <input type="text" name="altconnum" value="" class="form-control" required='true' maxlength="10" pattern="[0-9]+">
+                      <label for="exampleInputName1">City/Town</label>
+                      <input id="city" name="city" type="text" autocomplete="off" required>
                       </div>
 
                       <div class="form-group">
@@ -233,3 +224,18 @@ foreach($results as $result)
     <!-- End custom js for this page -->
   </body>
 </html><?php }  ?>
+
+
+                      
+
+                     
+
+
+                        
+
+
+                      
+
+
+
+                       

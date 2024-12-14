@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['alogin'])=="")
+if(strlen($_SESSION['sturecmsaid'])==0)
     {   
 header('location:index.php');
 }
@@ -155,6 +155,17 @@ if($stats==1){
     <!-- Custom js for this page -->
     <script src="./js/dashboard.js"></script>
     <!-- End custom js for this page -->
+     <!-- Javascripts -->
+     <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../assets/js/alpha.min.js"></script>
+        <script src="../assets/js/pages/table-data.js"></script>
+         <script src="assets/js/pages/ui-modals.js"></script>
+        <script src="assets/plugins/google-code-prettify/prettify.js"></script>
+        
         
     </body>
 </html>

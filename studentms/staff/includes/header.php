@@ -5,7 +5,7 @@
           </a>
           <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="images/logo-mini.svg" alt="logo" /></a>
         </div><?php
-         $aid= $_SESSION['sturecmsaid'];
+         $aid= $_SESSION['emplogin'];
 $sql="SELECT * from tblemployees where id=:aid";
 
 $query = $dbh -> prepare($sql);

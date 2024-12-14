@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['alogin'])=="")
+if(strlen($_SESSION['sturecmsaid'])==0)
     {   
     header("Location: index.php"); 
     }

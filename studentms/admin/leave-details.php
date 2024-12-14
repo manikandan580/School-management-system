@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+include('includes/dbconnection.php');
+if(strlen($_SESSION['sturecmsaid'])==0)
     {   
 header('location:index.php');
 }
@@ -62,7 +62,8 @@ $msg="Leave updated Successfully";
                 <link href="../assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
         <!-- Theme Styles -->
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="css/style.css" />
+        
 <style>
         .errorWrap {
     padding: 10px;
@@ -83,19 +84,34 @@ $msg="Leave updated Successfully";
         </style>
     </head>
     <body>
-       <?php include('includes/header.php');?>
-            
-       <?php include('includes/sidebar.php');?>
-            <main class="mn-inner">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="page-title" style="font-size:24px;">Leave Details</div>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+     <?php include_once('includes/header.php');?>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <?php include_once('includes/sidebar.php');?>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+             <div class="page-header">
+              <h3 class="page-title"> All leaves </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> All Leaves</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex align-items-center mb-4">
+                      <h4 class="card-title mb-sm-0">All Leaves</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Leaves</a>
                     </div>
-                   
-                    <div class="col s12 m12 l12">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Leave Details</span>
+    
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                 <table id="example" class="display responsive-table ">
                                
