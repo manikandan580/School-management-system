@@ -104,13 +104,11 @@ $msg="Employee record updated Successfully";
                                     <form class="col s12" name="chngpwd" method="post">
                                     <div>
                                         <h3>Update Employee Info</h3>
+                                        <form class="forms-sample" method="post" enctype="multipart/form-data">
                                            <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                         <section>
-                                            <div class="wizard-content">
-                                                <div class="row">
-                                                    <div class="col m6">
-                                                        <div class="row">
+                                            
 <?php 
 $eid=intval($_GET['empid']);
 $sql = "SELECT * from  tblemployees where id=:eid";
@@ -123,41 +121,37 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {               ?> 
- <div class="input-field col  s12">
+ <div class="form-group">
 <label for="empcode">Employee Code(Must be unique)</label>
-<input  name="empcode" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
+<input  name="empcode"  class="form-control" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
 <span id="empid-availability" style="font-size:12px;"></span> 
 </div>
 
 
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="firstName">First name</label>
-<input id="firstName" name="firstName" value="<?php echo htmlentities($result->FirstName);?>"  type="text" required>
+<input id="firstName"  class="form-control" name="firstName" value="<?php echo htmlentities($result->FirstName);?>"  type="text" required>
 </div>
 
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="lastName">Last name </label>
-<input id="lastName" name="lastName" value="<?php echo htmlentities($result->LastName);?>" type="text" autocomplete="off" required>
+<input id="lastName"  class="form-control" name="lastName" value="<?php echo htmlentities($result->LastName);?>" type="text" autocomplete="off" required>
 </div>
 
-<div class="input-field col s12">
+<div class="form-group">
 <label for="email">Email</label>
-<input  name="email" type="email" id="email" value="<?php echo htmlentities($result->EmailId);?>" readonly autocomplete="off" required>
+<input  name="email" type="email" class="form-control"  id="email" value="<?php echo htmlentities($result->EmailId);?>" readonly autocomplete="off" required>
 <span id="emailid-availability" style="font-size:12px;"></span> 
 </div>
 
-<div class="input-field col s12">
+<div class="form-group">
 <label for="phone">Mobile number</label>
-<input id="phone" name="mobileno" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
+<input id="phone" name="mobileno" class="form-control" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
  </div>
 
-</div>
-</div>
-                                                    
-<div class="col m6">
-<div class="row">
-<div class="input-field col m6 s12">
-<select  name="gender" autocomplete="off">
+
+<div class="form-group">
+<select  name="gender" class="form-control" autocomplete="off">
 <option value="<?php echo htmlentities($result->Gender);?>"><?php echo htmlentities($result->Gender);?></option>                                          
 <option value="Male">Male</option>
 <option value="Female">Female</option>
@@ -165,15 +159,15 @@ foreach($results as $result)
 </select>
 </div>
 
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="birthdate">Date of Birth</label>
-<input id="birthdate" name="dob"  class="datepicker" value="<?php echo htmlentities($result->Dob);?>" >
+<input id="birthdate" class="form-control" name="dob"  class="datepicker" value="<?php echo htmlentities($result->Dob);?>" >
 </div>
 
                                                     
 
-<div class="input-field col m6 s12">
-<select  name="department" autocomplete="off">
+<div class="form-group">
+<select  name="department"class="form-control"  autocomplete="off">
 <option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option>
 <?php $sql = "SELECT DepartmentName from tbldepartments";
 $query = $dbh -> prepare($sql);
@@ -189,27 +183,27 @@ foreach($results as $resultt)
 </select>
 </div>
 
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="address">Address</label>
-<input id="address" name="address" type="text"  value="<?php echo htmlentities($result->Address);?>" autocomplete="off" required>
+<input id="address" name="address"class="form-control" type="text"  value="<?php echo htmlentities($result->Address);?>" autocomplete="off" required>
 </div>
 
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="city">City/Town</label>
-<input id="city" name="city" type="text"  value="<?php echo htmlentities($result->City);?>" autocomplete="off" required>
+<input id="city" name="city" class="form-control" type="text"  value="<?php echo htmlentities($result->City);?>" autocomplete="off" required>
  </div>
    
-<div class="input-field col m6 s12">
+<div class="form-group">
 <label for="country">Country</label>
-<input id="country" name="country" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
+<input id="country" name="country" class="form-control" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
 </div>
 
                                                             
 
 <?php }}?>
                                                         
-<div class="input-field col s12">
-<button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">UPDATE</button>
+<div class="form-group">
+<button type="submit" name="update"  id="update" class="btn btn-primary mr-2">UPDATE</button>
 
 </div>
 

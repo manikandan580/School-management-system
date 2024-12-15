@@ -11,7 +11,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $section=$_POST['section'];
  $eid=$_GET['editid'];
 
-$sql="update tblclass set ClassName=:cname,Section=:section where ID=:eid";
+$sql="update tblclass set ClassName=:cname,Section=:section where id=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':cname',$cname,PDO::PARAM_STR);
 $query->bindParam(':section',$section,PDO::PARAM_STR);
@@ -71,7 +71,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <form class="forms-sample" method="post">
                       <?php
 $eid=$_GET['editid'];
-$sql="SELECT * from  tblclass where ID=$eid";
+$sql="SELECT * from  tblclass where id=$eid";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

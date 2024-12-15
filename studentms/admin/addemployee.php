@@ -2,59 +2,60 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if (strlen($_SESSION['sturecmsaid']==0)) {
-  header('location:logout.php');
-  } else{
-   if(isset($_POST['submit']))
-  {
-    $empid=$_POST['empcode'];
-    $fname=$_POST['firstName'];
-    $lname=$_POST['lastName'];   
-    $email=$_POST['email']; 
-    $password=md5($_POST['password']); 
-    $gender=$_POST['gender']; 
-    $dob=$_POST['dob']; 
-    
-    $address=$_POST['address']; 
-    $city=$_POST['city']; 
-    $country=$_POST['country']; 
-    $department=$_POST['department'];
-    $mobileno=$_POST['mobileno'];
-  
-    $sql="INSERT INTO tblemployees(EmpId,FirstName,LastName,EmailId,Password,Gender,Dob,Department,Address,City,Country,Phonenumber,Status) VALUES(:empid,:fname,:lname,:email,:password,:gender,:dob,:department,:address,:city,:country,:mobileno,:status)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':empid',$empid,PDO::PARAM_STR);
-    $query->bindParam(':fname',$fname,PDO::PARAM_STR);
-    $query->bindParam(':lname',$lname,PDO::PARAM_STR);
-    $query->bindParam(':email',$email,PDO::PARAM_STR);
-    $query->bindParam(':password',$password,PDO::PARAM_STR);
-    $query->bindParam(':gender',$gender,PDO::PARAM_STR);
-    $query->bindParam(':dob',$dob,PDO::PARAM_STR);
+if(strlen($_SESSION['sturecmsaid'])==0)
+    {   
+header('location:index.php');
+}
+else{
+if(isset($_POST['add']))
+{
+$empid=$_POST['empcode'];
+$fname=$_POST['firstName'];
+$lname=$_POST['lastName'];   
+$email=$_POST['email']; 
+$password=md5($_POST['password']); 
+$gender=$_POST['gender']; 
+$dob=$_POST['dob']; 
+$department=$_POST['department']; 
+$address=$_POST['address']; 
+$city=$_POST['city']; 
+$country=$_POST['country']; 
+$mobileno=$_POST['mobileno']; 
+$status=1;
 
-    $query->bindParam(':address',$address,PDO::PARAM_STR);
-    $query->bindParam(':city',$city,PDO::PARAM_STR);
-    $query->bindParam(':country',$country,PDO::PARAM_STR);
-    $query->bindParam(':department',$department,PDO::PARAM_STR);
-    $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
-    $query->bindParam(':status',$status,PDO::PARAM_STR);
-    $query->execute();
-    $lastInsertId = $dbh->lastInsertId();
-    if($lastInsertId)
-    {
-    $msg="Employee record added Successfully";
-    }
-    else 
-    {
-    $error="Something went wrong. Please try again";
-    }
-    
-    }
-    
-  ?>
+$sql="INSERT INTO tblemployees(EmpId,FirstName,LastName,EmailId,Password,Gender,Dob,Department,Address,City,Country,Phonenumber,Status) VALUES(:empid,:fname,:lname,:email,:password,:gender,:dob,:department,:address,:city,:country,:mobileno,:status)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':empid',$empid,PDO::PARAM_STR);
+$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+$query->bindParam(':lname',$lname,PDO::PARAM_STR);
+$query->bindParam(':email',$email,PDO::PARAM_STR);
+$query->bindParam(':password',$password,PDO::PARAM_STR);
+$query->bindParam(':gender',$gender,PDO::PARAM_STR);
+$query->bindParam(':dob',$dob,PDO::PARAM_STR);
+$query->bindParam(':department',$department,PDO::PARAM_STR);
+$query->bindParam(':address',$address,PDO::PARAM_STR);
+$query->bindParam(':city',$city,PDO::PARAM_STR);
+$query->bindParam(':country',$country,PDO::PARAM_STR);
+$query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
+$query->bindParam(':status',$status,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+$msg="Employee record added Successfully";
+}
+else 
+{
+$error="Something went wrong. Please try again";
+}
+
+}
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-   
+    <head>
     <title>Student  Management System|| Add Students</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
@@ -70,8 +71,75 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
     <!-- Layout styles -->
     <link rel="stylesheet" href="css/style.css" />
     
-  </head>
-  <body>
+        
+        
+  <style>
+        .errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+        </style>
+    <script type="text/javascript">
+function valid()
+{
+if(document.addemp.password.value!= document.addemp.confirmpassword.value)
+{
+alert("New Password and Confirm Password Field do not match  !!");
+document.addemp.confirmpassword.focus();
+return false;
+}
+return true;
+}
+</script>
+
+<script>
+function checkAvailabilityEmpid() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "check_availability.php",
+data:'empcode='+$("#empcode").val(),
+type: "POST",
+success:function(data){
+$("#empid-availability").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+</script>
+
+<script>
+function checkAvailabilityEmailid() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "check_availability.php",
+data:'emailid='+$("#email").val(),
+type: "POST",
+success:function(data){
+$("#emailid-availability").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+</script>
+
+
+
+    </head>
+    <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
      <?php include_once('includes/header.php');?>
@@ -83,92 +151,79 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Add Staff </h3>
+              <h3 class="page-title"> Add Students </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Add Staff</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Add Students</li>
                 </ol>
               </nav>
             </div>
-            <div class="row">
-          
-              <div class="col-12 grid-margin stretch-card">
+
+
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Add Staff</h4>
+                    <h4 class="card-title" style="text-align: center;">Add Students</h4>
                    
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
-                      
-                      <div class="form-group">
-                        <label for="exampleInputName1">Employee Code</label>
-                        <input type="text" name="empcode" value="" class="form-control" required='true'>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1"> First Name</label>
-                        <input type="text" name="firstname" value="" class="form-control" required='true'>
+
+                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+                else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+                                        
+     
+
+
+<div class="form-group">
+                        <label for="exampleInputName1">Employee Code(Must be unique)</label>
+                        <input type="text" name="empcode" id="empcode" onBlur="checkAvailabilityEmpid()" value="" autocomplete="off" class="form-control" required>
+                        <span id="empid-availability" style="font-size:12px;"></span> 
+
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1"> Last Name</label>
-                        <input type="text" name="lastname" value="" class="form-control" required='true'>
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName" value="" class="form-control" required>
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1">Email</label>
-                        <input type="text" name="Email" value="" class="form-control" required='true'>
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName" value="" class="form-control" autocomplete="off" required>
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1">password</label>
-                        <input type="text" name="password" value="" class="form-control" required='true'>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">confirm password</label>
-                        <input type="text" name="image" value="" class="form-control" required='true'>
+                        <label for="email">Email</label>
+                        <input type="email" id="lastName" name="email" value="" id="email" onBlur="checkAvailabilityEmailid()" class="form-control" autocomplete="off" required>
+                        <span id="emailid-availability" style="font-size:12px;"></span>
                       </div>
 
-                      
-                      
                       <div class="form-group">
-                        <label for="exampleInputName1">Gender</label>
-                        <select name="gender" value="" class="form-control" required='true'>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" value="" class="form-control" autocomplete="off" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="confirm"> Confirm Password</label>
+                        <input type="password" id="confirm" name="confirmpassword" value="" class="form-control" autocomplete="off" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select name="gender" value="" class="form-control" autocomplete="off" required='true'>
                           <option value="">Choose Gender</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
+                          <option value="Other">Other</option>
                         </select>
-
-                        </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Date of Birth</label>
-                        <input type="date" name="dob" value="" class="form-control" required='true'>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Address</label>
-                        <textarea name="address" value="" class="form-control" required='true'></textarea>
                       </div>
 
                       <div class="form-group">
-                      <label for="exampleInputName1">City/Town</label>
-                      <input id="city" name="city" type="text" autocomplete="off" required>
+                        <label for="birthdate"> Birthdate</label>
+                        <input type="date" id="birthdate" name="dob" value="" class="form-control" autocomplete="off">
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1">Country</label>
-                        <input type="text" name="altconnum" value="" class="form-control" required='true' maxlength="10" pattern="[0-9]+">
-                      </div>
-
-
-                      
-                      
-                      <div class="form-group">
-                        <label for="exampleInputName1">Contact Number</label>
-                        <input type="text" name="connum" value="" class="form-control" required='true' maxlength="10" pattern="[0-9]+">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="exampleInputName1">Department</label>
-                        <select name="department" value="" class="form-control" required='true'>
+<select  name="department" class="form-control" autocomplete="off">
 <option value="">Department...</option>
 <?php $sql = "SELECT DepartmentName from tbldepartments";
 $query = $dbh -> prepare($sql);
@@ -184,22 +239,89 @@ foreach($results as $result)
 </select>
 </div>
 
-                      <button type="submit" class="btn btn-primary mr-2" name="submit">Add</button>
-                      
+<div class="form-group">
+<label for="address">Address</label>
+<input id="address" name="address" type="text" class="form-control" autocomplete="off" required>
+</div>
+
+<div class="form-group">
+<label for="city">City/Town</label>
+<input id="city" name="city" type="text"  class="form-control" autocomplete="off" required>
+ </div>
+   
+<div class="form-group">
+<label for="country">Country</label>
+<input id="country" name="country" type="text" class="form-control" autocomplete="off" required>
+</div>
+
+                                                            
+<div class="form-group">
+<label for="phone">Mobile number</label>
+<input id="phone" name="mobileno" type="tel" maxlength="10"  class="form-control" autocomplete="off" required>
+ </div>
 
                       
 
+
+
                       
 
-<
-                  </div>
+
+
+
+
+
+
+
+
+                                                    
+
+
+
+
+
+                                                    
+
+
+
+
+
+
+
+
+
+
+ <div class="input-field col s12">
+<button type="submit" name="add" onclick="return valid();" id="add" class="btn btn-primary mr-2">ADD</button>
+
+</div>
+
+
+
+                                                        
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                     
+                                    
+                                        </section>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-         <?php include_once('includes/footer.php');?>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+        
+        <!-- Javascripts -->
+        <?php include_once('includes/footer.php');?>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -222,20 +344,7 @@ foreach($results as $result)
     <script src="js/typeahead.js"></script>
     <script src="js/select2.js"></script>
     <!-- End custom js for this page -->
-  </body>
-</html><?php }  ?>
-
-
-                      
-
-                     
-
-
-                        
-
-
-                      
-
-
-
-                       
+        
+    </body>
+</html>
+<?php } ?> 

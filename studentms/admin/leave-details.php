@@ -43,9 +43,9 @@ $msg="Leave updated Successfully";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
-        <!-- Title -->
-        <title>Admin | Leave Details </title>
+    <title>Student  Management System|||Manage Result</title>
+
+    
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -62,7 +62,22 @@ $msg="Leave updated Successfully";
                 <link href="../assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
         <!-- Theme Styles -->
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="css/style.css" />
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="./vendors/chartist/chartist.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./css/style.css">
+        
+        
         
 <style>
         .errorWrap {
@@ -113,7 +128,9 @@ $msg="Leave updated Successfully";
                     </div>
     
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                <table id="example" class="display responsive-table ">
+                                
+                                <div class="table-responsive border rounded p-1">
+                                <table class="table">
                                
                                  
                                     <tbody>
@@ -209,20 +226,19 @@ if($stats==0)
 ?>
 <tr>
  <td colspan="5">
-  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
+  <a href="#modal1"></a>
 <form name="adminaction" method="post">
-<div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
-    <div class="modal-content" style="width:90%">
+
         <h4>Leave take action</h4>
-          <select class="browser-default" name="status" required="">
+          <select   value="" class="form-control" autocomplete="off" required='true' class="browser-default"  name="status" >
                                             <option value="">Choose your option</option>
                                             <option value="1">Approved</option>
                                             <option value="2">Not Approved</option>
                                         </select></p>
-                                        <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
+                                        <p><textarea id="textarea1" name="description" class="form-control" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
     </div>
-    <div class="modal-footer" style="width:90%">
-       <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
+    
+       <input type="submit" class="btn btn-primary mr-2" name="update" value="Submit">
     </div>
 
 </div>   
@@ -244,15 +260,31 @@ if($stats==0)
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/table-data.js"></script>
-         <script src="assets/js/pages/ui-modals.js"></script>
-        <script src="assets/plugins/google-code-prettify/prettify.js"></script>
+         <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <?php include_once('includes/footer.php');?>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="vendors/select2/select2.min.js"></script>
+    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="js/typeahead.js"></script>
+    <script src="js/select2.js"></script>
+    <!-- End custom js for this page -->
         
     </body>
 </html>

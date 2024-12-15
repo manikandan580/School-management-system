@@ -15,22 +15,21 @@ else{
 <html lang="en">
     <head>
         
-        <!-- Title -->
-        <!-- Title -->
-        <title>Student  Management System||  Leaves</title>
+    <title>Student  Management System|||Manage Notice</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="vendors/select2/select2.min.css">
-    <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="./vendors/chartist/chartist.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- End layout styles -->
 <style>
         .errorWrap {
     padding: 10px;
@@ -78,17 +77,18 @@ else{
                       <h4 class="card-title mb-sm-0">All Leaves</h4>
                       <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Leaves</a>
                     </div>
-                    <div class="table-responsive border rounded p-1">
-                      <table class="table">
+                                <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                <table id="example" class="table ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th width="200">Employe Name</th>
-                                            <th width="120">Leave Type</th>
+                                            <th class="font-weight-bold" >#</th>
+                                            <th class="font-weight-bold">Employe Name</th>
+                                            <th class="font-weight-bold">Leave Type</th>
 
-                                             <th width="180">Posting Date</th>                 
-                                            <th>Status</th>
-                                            <th align="center">Action</th>
+                                             <th class="font-weight-bold">Posting Date</th>                 
+                                            <th class="font-weight-bold">Status</th>
+                                            <th class="font-weight-bold">Action</th>
+                                            
                                         </tr>
                                     </thead>
                                  
@@ -138,7 +138,16 @@ if($stats==1){
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-        <!-- container-scroller -->
+        <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <?php include_once('includes/footer.php');?>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -155,17 +164,6 @@ if($stats==1){
     <!-- Custom js for this page -->
     <script src="./js/dashboard.js"></script>
     <!-- End custom js for this page -->
-     <!-- Javascripts -->
-     <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/table-data.js"></script>
-         <script src="assets/js/pages/ui-modals.js"></script>
-        <script src="assets/plugins/google-code-prettify/prettify.js"></script>
-        
         
     </body>
 </html>

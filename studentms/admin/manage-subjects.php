@@ -137,8 +137,8 @@ foreach($results as $result)
                                                             <td><?php echo htmlentities($result->Creationdate);?></td>
                                                             <td><?php echo htmlentities($result->UpdationDate);?></td>
 <td>
-<a href="edit-subject.php?subjectid=<?php echo htmlentities($result->id);?>" class="btn btn-info btn-xs">Eidt  </a> 
-  <a href="manage-subjects.php?id=<?php echo $result->id;?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs">Delete</a>
+<a href="edit-subject.php?subjectid=<?php echo htmlentities($result->id);?>" > <i class="icon-eye"></i>  </a> 
+    ||<a href="manage-subjects.php?id=<?php echo $result->id;?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-trash"></i></a>
 
 </td>
 </tr>

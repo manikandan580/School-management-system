@@ -92,7 +92,7 @@ else if($error){?>
 
 <?php 
 
-$ret = "SELECT tblstudent.StudentName,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblresult.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.ID=:stid limit 1";
+$ret = "SELECT tblstudent.StudentName,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblresult.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:stid limit 1";
 $stmt = $dbh->prepare($ret);
 $stmt->bindParam(':stid',$stid,PDO::PARAM_STR);
 $stmt->execute();
@@ -121,7 +121,7 @@ foreach($result as $row)
 
 
 <?php 
-$sql = "SELECT distinct tblstudent.StudentName,tblstudent.ID,tblclass.ClassName,tblclass.Section,tblsubjects.SubjectName,tblresult.marks,tblresult.id as resultid from tblresult join tblstudent on tblstudent.ID=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.ID=:stid ";
+$sql = "SELECT distinct tblstudent.StudentName,tblstudent.StudentId,tblclass.ClassName,tblclass.Section,tblsubjects.SubjectName,tblresult.marks,tblresult.id as resultid from tblresult join tblstudent on tblstudent.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:stid ";
 $query = $dbh->prepare($sql);
 $query->bindParam(':stid',$stid,PDO::PARAM_STR);
 $query->execute();
