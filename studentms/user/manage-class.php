@@ -9,7 +9,7 @@ if (strlen($_SESSION['sturecmsstuid']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblclass where ID=:rid";
+$sql="delete from tblclass where id=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();
@@ -90,7 +90,7 @@ $query->execute();
         // Formula for pagination
         $no_of_records_per_page =15;
         $offset = ($pageno-1) * $no_of_records_per_page;
-       $ret = "SELECT ID FROM tblclass";
+       $ret = "SELECT id FROM tblclass";
 $query1 = $dbh -> prepare($ret);
 $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);

@@ -13,21 +13,21 @@ if(strlen($_SESSION['emplogin'])==0)
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Title -->
-        <title>Student  Management System|| Manage Result</title>
+    <title>Student  Management System|||Manage Result</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="vendors/select2/select2.min.css">
-    <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="./vendors/chartist/chartist.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- End layout styles -->
           <style>
         .errorWrap {
     padding: 10px;
@@ -53,7 +53,7 @@ if(strlen($_SESSION['emplogin'])==0)
      <?php include_once('includes/header.php');?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial :partials/_sidebar.html -->
+        <!-- partial:partials/_sidebar.html -->
         <?php include_once('includes/sidebar.php');?>
         <!-- partial -->
         <div class="main-panel">
@@ -75,8 +75,7 @@ if(strlen($_SESSION['emplogin'])==0)
                       <h4 class="card-title mb-sm-0">Manage Result</h4>
                       <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Result</a>
                     </div>
-                    <div class="table-responsive border rounded p-1">
-                      <table class="table">
+                    
 <?php if($msg){?>
 <div class="alert alert-success left-icon-alert" role="alert">
  <strong>Well done!</strong><?php echo htmlentities($msg); ?>
@@ -86,9 +85,8 @@ else if($error){?>
                                             <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
                                         </div>
                                         <?php } ?>
-                                            <div class="panel-body p-20">
-
-                                                <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                                        <div class="table-responsive border rounded p-1">
+                                        <table class="table">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -112,7 +110,7 @@ else if($error){?>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT  distinct tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.ID,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblstudent.ID=tblresult.StudentId  join tblclass on tblclass.id=tblresult.ClassId";
+<?php $sql = "SELECT  distinct tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.StudentId ,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblresult join tblstudent on tblstudent.StudentId =tblresult.StudentId  join tblclass on tblclass.id=tblresult.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -183,18 +181,21 @@ else{
         <!-- /.main-wrapper -->
 
         <!-- ========== COMMON JS FILES ========== -->
-        <script src="js/jquery/jquery-2.2.4.min.js"></script>
-        <script src="js/bootstrap/bootstrap.min.js"></script>
-        <script src="js/pace/pace.min.js"></script>
-        <script src="js/lobipanel/lobipanel.min.js"></script>
-        <script src="js/iscroll/iscroll.js"></script>
-
-        <!-- ========== PAGE JS FILES ========== -->
-        <script src="js/prism/prism.js"></script>
-        <script src="js/DataTables/datatables.min.js"></script>
-
-        <!-- ========== THEME JS ========== -->
-        <script src="js/main.js"></script>
+        <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./vendors/chart.js/Chart.min.js"></script>
+    <script src="./vendors/moment/moment.min.js"></script>
+    <script src="./vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="./vendors/chartist/chartist.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./js/dashboard.js"></script>
+    <!-- End custom js for this page -->
         <script>
             $(function($) {
                 $('#example').DataTable();
@@ -208,33 +209,6 @@ else{
                 $('#example3').DataTable();
             });
         </script>
-
-        <!-- Javascripts -->
-        <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <?php include_once('includes/footer.php');?>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="vendors/select2/select2.min.js"></script>
-    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="js/off-canvas.js"></script>
-    <script src="js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="js/typeahead.js"></script>
-    <script src="js/select2.js"></script>
-    <!-- End custom js for this page -->
     </body>
 </html>
 <?php } ?>

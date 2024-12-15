@@ -9,7 +9,7 @@
                 <div class="text-wrapper">
                   <?php
          $uid= $_SESSION['sturecmsuid'];
-$sql="SELECT * from tblstudent where ID=:uid";
+$sql="SELECT * from tblstudent where StudentId=:uid";
 
 $query = $dbh -> prepare($sql);
 $query->bindParam(':uid',$uid,PDO::PARAM_STR);

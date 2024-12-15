@@ -1,4 +1,4 @@
- <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
           <a class="navbar-brand brand-logo" href="dashboard.php">
             <strong style="color: white;">SMS</strong>
@@ -7,7 +7,7 @@
         </div>
         <?php
          $uid= $_SESSION['sturecmsuid'];
-$sql="SELECT * from tblstudent where ID=:uid";
+$sql="SELECT * from tblstudent where StudentId=:uid";
 
 $query = $dbh -> prepare($sql);
 $query->bindParam(':uid',$uid,PDO::PARAM_STR);

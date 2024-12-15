@@ -7,7 +7,7 @@ if(isset($_POST['login']))
   {
     $stuid=$_POST['stuid'];
     $password=md5($_POST['password']);
-    $sql ="SELECT StuID,ID,StudentClass FROM tblstudent WHERE (UserName=:stuid || StuID=:stuid) and Password=:password";
+    $sql ="SELECT StuID,StudentId,ClassId FROM tblstudent WHERE (UserName=:stuid || StuID=:stuid) and Password=:password";
     $query=$dbh->prepare($sql);
     $query-> bindParam(':stuid', $stuid, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -17,8 +17,8 @@ $query-> bindParam(':password', $password, PDO::PARAM_STR);
 {
 foreach ($results as $result) {
 $_SESSION['sturecmsstuid']=$result->StuID;
-$_SESSION['sturecmsuid']=$result->ID;
-$_SESSION['stuclass']=$result->StudentClass;
+$_SESSION['sturecmsuid']=$result->StudentId;
+$_SESSION['stuclass']=$result->ClassId;
 }
 
   if(!empty($_POST["remember"])) {
