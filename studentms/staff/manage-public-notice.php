@@ -9,7 +9,7 @@ if (strlen($_SESSION['emplogin']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblpublicnotice where ID=:rid";
+$sql="delete from tblpublicnotice where id=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();

@@ -222,22 +222,7 @@ error:function (){}
                         <input type="date" id="birthdate" name="dob" value="" class="form-control" autocomplete="off">
                       </div>
 
-                      <div class="form-group">
-<select  name="department" class="form-control" autocomplete="off">
-<option value="">Department...</option>
-<?php $sql = "SELECT DepartmentName from tbldepartments";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{   ?>                                            
-<option value="<?php echo htmlentities($result->DepartmentName);?>"><?php echo htmlentities($result->DepartmentName);?></option>
-<?php }} ?>
-</select>
-</div>
+                      
 
 <div class="form-group">
 <label for="address">Address</label>

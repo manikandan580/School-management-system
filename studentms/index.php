@@ -110,7 +110,7 @@ foreach($results as $row)
 {               ?>
 
  
-		<a href="view-public-notice.php?viewid=<?php echo htmlentities ($row->ID);?>" target="_blank" style="color:#fff;">
+		<a href="view-public-notice.php?viewid=<?php echo htmlentities ($row->id);?>" target="_blank" style="color:#fff;">
           <?php  echo htmlentities($row->NoticeTitle);?>(<?php  echo htmlentities($row->CreationDate);?>)</a>
           <hr /><br />
 				    

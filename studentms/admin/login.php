@@ -7,7 +7,7 @@ if(isset($_POST['login']))
   {
     $username=$_POST['username'];
     $password=md5($_POST['password']);
-    $sql ="SELECT ID FROM tbladmin WHERE UserName=:username and Password=:password";
+    $sql ="SELECT id FROM tbladmin WHERE UserName=:username and Password=:password";
     $query=$dbh->prepare($sql);
     $query-> bindParam(':username', $username, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -16,7 +16,7 @@ $query-> bindParam(':password', $password, PDO::PARAM_STR);
     if($query->rowCount() > 0)
 {
 foreach ($results as $result) {
-$_SESSION['sturecmsaid']=$result->ID;
+$_SESSION['sturecmsaid']=$result->id;
 }
 
   if(!empty($_POST["remember"])) {

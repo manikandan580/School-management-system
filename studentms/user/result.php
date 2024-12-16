@@ -56,7 +56,7 @@ $rollid=$_POST['rollid'];
 $classid=$_POST['class'];
 $_SESSION['rollid']=$rollid;
 $_SESSION['classid']=$classid;
-$qery = "SELECT   tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.ID,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.RollId=:rollid and tblstudent.ClassId=:classid ";
+$qery = "SELECT   tblstudent.StudentName,tblstudent.RollId,tblstudent.RegDate,tblstudent.StudentId,tblstudent.Status,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.RollId=:rollid and tblstudent.ClassId=:classid ";
 $stmt = $dbh->prepare($qery);
 $stmt->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $stmt->bindParam(':classid',$classid,PDO::PARAM_STR);
@@ -98,7 +98,7 @@ foreach($resultss as $row)
 <?php                                              
 // Code for result
 
- $query ="select t.StudentName,t.RollId,t.ClassId,t.marks,SubjectId,tblsubjects.SubjectName from (select sts.StudentName,sts.RollId,sts.ClassId,tr.marks,SubjectId from tblstudent as sts join  tblresult as tr on tr.StudentId=sts.ID) as t join tblsubjects on tblsubjects.id=t.SubjectId where (t.RollId=:rollid and t.ClassId=:classid)";
+ $query ="select t.StudentName,t.RollId,t.ClassId,t.marks,SubjectId,tblsubjects.SubjectName from (select sts.StudentName,sts.RollId,sts.ClassId,tr.marks,SubjectId from tblstudent as sts join  tblresult as tr on tr.StudentId=sts.StudentId) as t join tblsubjects on tblsubjects.id=t.SubjectId where (t.RollId=:rollid and t.ClassId=:classid)";
 $query= $dbh -> prepare($query);
 $query->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $query->bindParam(':classid',$classid,PDO::PARAM_STR);

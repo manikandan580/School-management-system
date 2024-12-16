@@ -89,24 +89,24 @@ else if($error){?>
                                         <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>Student Name</th>
-                                                            <th>Roll Id</th>
-                                                            <th>Class</th>
-                                                            <th>Reg Date</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
+                                                            <th  class="font-weight-bold">So.No</th>
+                                                            <th class="font-weight-bold">Student Name</th>
+                                                            <th class="font-weight-bold">Roll Id</th>
+                                                            <th class="font-weight-bold">Class</th>
+                                                            <th class="font-weight-bold">Reg Date</th>
+                                                            <th class="font-weight-bold">Status</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                          <th>#</th>
-                                                            <th>Student Name</th>
-                                                            <th>Roll Id</th>
-                                                            <th>Class</th>
-                                                            <th>Reg Date</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
+                                                          <th class="font-weight-bold">So.No</th>
+                                                            <th class="font-weight-bold">Student Name</th>
+                                                            <th class="font-weight-bold">Roll Id</th>
+                                                            <th class="font-weight-bold">Class</th>
+                                                            <th class="font-weight-bold">Reg Date</th>
+                                                            <th class="font-weight-bold">Status</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>

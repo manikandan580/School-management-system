@@ -92,13 +92,13 @@ header('location:manageemployee.php');
                       <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Sr no</th>
-                                            <th>Staff Id</th>
-                                            <th>Full Name</th>
-                                            <th>Department</th>
-                                             <th>Status</th>
-                                             <th>Reg Date</th>
-                                            <th>Action</th>
+                                            <th class="font-weight-bold" >Sr no</th>
+                                            <th class="font-weight-bold">Staff Id</th>
+                                            <th class="font-weight-bold">Full Name</th>
+                                            <th class="font-weight-bold">Department</th>
+                                             <th class="font-weight-bold">Status</th>
+                                             <th class="font-weight-bold">Reg Date</th>
+                                            <th class="font-weight-bold">Action</th>
                                         </tr>
                                     </thead>
                                  

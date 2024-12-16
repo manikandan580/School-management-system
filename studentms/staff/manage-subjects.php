@@ -102,22 +102,22 @@ else if($error){?>
                                                 
                                                     <thead>
                                                         <tr>
-                                                            <th> #</th>
-                                                            <th>Subject Name</th>
-                                                            <th>Subject Code</th>
-                                                            <th>Creation Date</th>
-                                                            <th>Updation Date</th>
-                                                            <th>Action</th>
+                                                            <th class="font-weight-bold">So.No </th>
+                                                            <th class="font-weight-bold">Subject Name</th>
+                                                            <th class="font-weight-bold">Subject Code</th>
+                                                            <th class="font-weight-bold" >Creation Date</th>
+                                                            <th class="font-weight-bold">Updation Date</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                          <th>#</th>
-                                                             <th>Subject Name</th>
-                                                            <th>Subject Code</th>
-                                                            <th>Creation Date</th>
-                                                            <th>Updation Date</th>
-                                                            <th>Action</th>
+                                                          <th class="font-weight-bold">So.No</th>
+                                                             <th class="font-weight-bold">Subject Name</th>
+                                                            <th class="font-weight-bold">Subject Code</th>
+                                                            <th class="font-weight-bold">Creation Date</th>
+                                                            <th class="font-weight-bold">Updation Date</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>

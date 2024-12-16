@@ -9,7 +9,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblnotice where ID=:rid";
+$sql="delete from tblnotice where id=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();
@@ -91,13 +91,13 @@ $query->execute();
         // Formula for pagination
         $no_of_records_per_page =15;
         $offset = ($pageno-1) * $no_of_records_per_page;
-       $ret = "SELECT ID FROM tblnotice";
+       $ret = "SELECT id FROM tblnotice";
 $query1 = $dbh -> prepare($ret);
 $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $total_rows=$query1->rowCount();
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-$sql="SELECT tblclass.ID,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.ID as nid from tblnotice join tblclass on tblclass.ID=tblnotice.ClassId LIMIT $offset, $no_of_records_per_page";
+$sql="SELECT tblclass.id,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.id as nid from tblnotice join tblclass on tblclass.id=tblnotice.ClassId LIMIT $offset, $no_of_records_per_page";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -115,8 +115,8 @@ foreach($results as $row)
                             <td><?php  echo htmlentities($row->Section);?></td>
                             <td><?php  echo htmlentities($row->CreationDate);?></td>
                             <td>
-                              <div><a href="edit-notice-detail.php?editid=<?php echo htmlentities ($row->ID);?>"><i class="icon-eye"></i></a>
-                                                || <a href="manage-notice.php?delid=<?php echo ($row->ID);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
+                              <div><a href="edit-notice-detail.php?editid=<?php echo htmlentities ($row->id);?>"><i class="icon-eye"></i></a>
+                                                || <a href="manage-notice.php?delid=<?php echo ($row->id);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
                             </td> 
                           </tr><?php $cnt=$cnt+1;}} ?>
                         </tbody>

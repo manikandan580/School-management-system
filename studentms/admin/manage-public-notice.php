@@ -9,7 +9,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblpublicnotice where ID=:rid";
+$sql="delete from tblpublicnotice where id=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();
@@ -89,7 +89,7 @@ $query->execute();
         // Formula for pagination
         $no_of_records_per_page =15;
         $offset = ($pageno-1) * $no_of_records_per_page;
-       $ret = "SELECT ID FROM tblpublicnotice";
+       $ret = "SELECT id FROM tblpublicnotice";
 $query1 = $dbh -> prepare($ret);
 $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
@@ -111,8 +111,8 @@ foreach($results as $row)
                             <td><?php  echo htmlentities($row->NoticeTitle);?></td>
                             <td><?php  echo htmlentities($row->CreationDate);?></td>
                             <td>
-                              <div><a href="edit-public-notice-detail.php?editid=<?php echo htmlentities ($row->ID);?>"><i class="icon-eye"></i></a>
-                                                || <a href="manage-public-notice.php?delid=<?php echo ($row->ID);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
+                              <div><a href="edit-public-notice-detail.php?editid=<?php echo htmlentities ($row->id);?>"><i class="icon-eye"></i></a>
+                                                || <a href="manage-public-notice.php?delid=<?php echo ($row->id);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
                             </td> 
                           </tr><?php $cnt=$cnt+1;}} ?>
                         </tbody>

@@ -10,7 +10,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $nottitle=$_POST['nottitle'];
  $notmsg=$_POST['notmsg'];
  $eid=$_GET['editid'];
-$sql="update tblpublicnotice set NoticeTitle=:nottitle,NoticeMessage=:notmsg where ID=:eid";
+$sql="update tblpublicnotice set NoticeTitle=:nottitle,NoticeMessage=:notmsg where id=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':nottitle',$nottitle,PDO::PARAM_STR);
 $query->bindParam(':notmsg',$notmsg,PDO::PARAM_STR);
@@ -70,7 +70,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                       <?php
 $eid=$_GET['editid'];
-$sql="SELECT * from tblpublicnotice where ID=:eid";
+$sql="SELECT * from tblpublicnotice where id=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();

@@ -11,7 +11,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
     $AName=$_POST['adminname'];
   $mobno=$_POST['mobilenumber'];
   $email=$_POST['email'];
-  $sql="update tbladmin set AdminName=:adminname,MobileNumber=:mobilenumber,Email=:email where ID=:aid";
+  $sql="update tbladmin set AdminName=:adminname,MobileNumber=:mobilenumber,Email=:email where id=:aid";
      $query = $dbh->prepare($sql);
      $query->bindParam(':adminname',$AName,PDO::PARAM_STR);
      $query->bindParam(':email',$email,PDO::PARAM_STR);

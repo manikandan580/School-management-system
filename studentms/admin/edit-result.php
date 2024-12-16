@@ -105,13 +105,13 @@ foreach($result as $row)
 
 
                                                     <div class="form-group">
-                                            <label for="default" class="col-sm-2 control-label">Class</label>
+                                            <label for="default" class="font-weight-bold">Class</label>
                                                         <div class="col-sm-10">
 <?php echo htmlentities($row->ClassName)?>(<?php echo htmlentities($row->Section)?>)
                                                         </div>
                                                     </div>
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Full Name</label>
+<label for="default" class="font-weight-bold">Full Name</label>
 <div class="col-sm-10">
 <?php echo htmlentities($row->StudentName);?>
 </div>
@@ -135,7 +135,7 @@ foreach($results as $result)
 
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label"><?php echo htmlentities($result->SubjectName)?></label>
+<label for="default" class="font-weight-bold"><?php echo htmlentities($result->SubjectName)?></label>
 <div class="col-sm-10">
 <input type="hidden" name="id[]" value="<?php echo htmlentities($result->resultid)?>">
 <input type="text" name="marks[]" class="form-control" id="marks" value="<?php echo htmlentities($result->marks)?>" maxlength="5" required="required" autocomplete="off">

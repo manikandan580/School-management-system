@@ -95,7 +95,7 @@ $result2=$query2->fetchAll(PDO::FETCH_OBJ);
 foreach($result2 as $row1)
 {          
     ?>  
-<option value="<?php echo htmlentities($row1->ID);?>"><?php echo htmlentities($row1->ClassName);?> <?php echo htmlentities($row1->Section);?></option>
+<option value="<?php echo htmlentities($row1->id);?>"><?php echo htmlentities($row1->ClassName);?> <?php echo htmlentities($row1->Section);?></option>
  <?php } ?> 
                         </select>
                       </div>

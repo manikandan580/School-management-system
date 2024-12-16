@@ -51,7 +51,7 @@ include('includes/dbconnection.php');
 		<table border="1" class="table table-bordered mg-b-0">
                       <?php
 $vid=$_GET['viewid'];
-$sql="SELECT * from tblpublicnotice where ID=:vid";
+$sql="SELECT * from tblpublicnotice where id=:vid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':vid',$vid,PDO::PARAM_STR);
 $query->execute();

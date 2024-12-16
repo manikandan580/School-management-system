@@ -55,10 +55,10 @@ if (strlen($_SESSION['sturecmsstuid']==0)) {
                     
                     <table border="1" class="table table-bordered mg-b-0">
                       <?php
-$stuclass=$_SESSION['stuclass'];
-$sql="SELECT tblclass.ID,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.NoticeMsg,tblnotice.ID as nid from tblnotice join tblclass on tblclass.ID=tblnotice.ClassId where tblnotice.ClassId=:stuclass";
+$classid=$_SESSION['classid'];
+$sql="SELECT tblclass.id,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.NoticeMsg,tblnotice.id as nid from tblnotice join tblclass on tblclass.id=tblnotice.ClassId where tblnotice.ClassId=:classid";
 $query = $dbh -> prepare($sql);
-$query->bindParam(':stuclass',$stuclass,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;

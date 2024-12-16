@@ -6,7 +6,7 @@
           <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="images/logo-mini.svg" alt="logo" /></a>
         </div><?php
          $aid= $_SESSION['sturecmsaid'];
-$sql="SELECT * from tbladmin where ID=:aid";
+$sql="SELECT * from tbladmin where id=:aid";
 
 $query = $dbh -> prepare($sql);
 $query->bindParam(':aid',$aid,PDO::PARAM_STR);

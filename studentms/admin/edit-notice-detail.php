@@ -11,7 +11,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $classid=$_POST['classid'];
  $notmsg=$_POST['notmsg'];
  $eid=$_GET['editid'];
-$sql="update tblnotice set NoticeTitle=:nottitle,ClassId=:classid, NoticeMsg=:notmsg where ID=:eid";
+$sql="update tblnotice set NoticeTitle=:nottitle,ClassId=:classid, NoticeMsg=:notmsg where id=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':nottitle',$nottitle,PDO::PARAM_STR);
 $query->bindParam(':classid',$classid,PDO::PARAM_STR);
@@ -72,7 +72,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                       <?php
 $eid=$_GET['editid'];
-$sql="SELECT tblclass.ID,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.NoticeMsg,tblnotice.ID as nid from tblnotice join tblclass on tblclass.ID=tblnotice.ClassId where tblnotice.ID=:eid";
+$sql="SELECT tblclass.id,tblclass.ClassName,tblclass.Section,tblnotice.NoticeTitle,tblnotice.CreationDate,tblnotice.ClassId,tblnotice.NoticeMsg,tblnotice.id as nid from tblnotice join tblclass on tblclass.id=tblnotice.ClassId where tblnotice.id=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
@@ -101,7 +101,7 @@ $result2=$query2->fetchAll(PDO::FETCH_OBJ);
 foreach($result2 as $row1)
 {          
     ?>  
-<option value="<?php echo htmlentities($row1->ID);?>"><?php echo htmlentities($row1->ClassName);?> <?php echo htmlentities($row1->Section);?></option>
+<option value="<?php echo htmlentities($row1->id);?>"><?php echo htmlentities($row1->ClassName);?> <?php echo htmlentities($row1->Section);?></option>
  <?php } ?> 
                         </select>
                       </div>

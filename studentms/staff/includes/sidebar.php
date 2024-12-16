@@ -104,20 +104,7 @@ foreach($results as $row)
               </div>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic5">
-                <span class="menu-title">department
-
-                </span>
-                <i class="icon-people menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic5">
-                <ul class="nav flex-column sub-menu">
-                  
-                  <li class="nav-item"> <a class="nav-link" href="managedepartments.php">Manage Department</a></li>
-                </ul>
-              </div>
-            </li>
+            
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic6">

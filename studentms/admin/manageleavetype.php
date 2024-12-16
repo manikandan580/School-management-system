@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/dbconnection.php');
 if(strlen($_SESSION['sturecmsaid'])==0)
     {   
 header('location:index.php');
@@ -23,24 +23,21 @@ $msg="Leave type record deleted";
     <head>
         
         <!-- Title -->
-        <title>Admin | Manage Leave Type</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
-        
-        <!-- Styles -->
-        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-        <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-
-            
-        <!-- Theme Styles -->
-        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <title>Student  Management System|||Manage Students</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="./vendors/chartist/chartist.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- End layout styles -->
 <style>
         .errorWrap {
     padding: 10px;
@@ -61,28 +58,43 @@ $msg="Leave type record deleted";
         </style>
     </head>
     <body>
-       <?php include('includes/header.php');?>
-            
-       <?php include('includes/sidebar.php');?>
-            <main class="mn-inner">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="page-title">Manage Leave Type</div>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+     <?php include_once('includes/header.php');?>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <?php include_once('includes/sidebar.php');?>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+             <div class="page-header">
+              <h3 class="page-title"> Manage StaFF </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage Staff</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex align-items-center mb-4">
+                      <h4 class="card-title mb-sm-0">Manage Staff</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Staff</a>
                     </div>
-                   
-                    <div class="col s12 m12 l12">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Leave Type Info</span>
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                <table id="example" class="display responsive-table ">
+                                <div class="table-responsive border rounded p-1">
+                      <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Sr no</th>
-                                            <th>Leave Type</th>
-                                            <th>Description</th>
-                                            <th>Creation Date</th>
-                                            <th>Action</th>
+                                            <th class="font-weight-bold">So.No</th>
+                                            <th class="font-weight-bold">Leave Type</th>
+                                            <th class="font-weight-bold">Description</th>
+                                            <th class="font-weight-bold">Creation Date</th>
+                                            <th class="font-weight-bold">Action</th>
                                         </tr>
                                     </thead>
                                  
@@ -101,8 +113,8 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->LeaveType);?></td>
                                             <td><?php echo htmlentities($result->Description);?></td>
                                             <td><?php echo htmlentities($result->CreationDate);?></td>
-                                            <td><a href="editleavetype.php?lid=<?php echo htmlentities($result->id);?>"><i class="material-icons">mode_edit</i></a>
-                                            <a href="manageleavetype.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you want to delete');"> <i class="material-icons">delete_forever</i></a> </td>
+                                            <td><a href="editleavetype.php?lid=<?php echo htmlentities($result->id);?>"><i class="icon-eye"></i></a>
+                                            ||<a href="manageleavetype.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you want to delete');"> <i class="icon-trash"></i></a> </td>
                                         </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
@@ -117,13 +129,31 @@ foreach($results as $result)
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/table-data.js"></script>
+        <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <?php include_once('includes/footer.php');?>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="vendors/select2/select2.min.js"></script>
+    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="js/typeahead.js"></script>
+    <script src="js/select2.js"></script>
+    <!-- End custom js for this page -->
         
     </body>
 </html>
