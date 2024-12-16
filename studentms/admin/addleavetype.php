@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/dbconnection.php');
 if(strlen($_SESSION['sturecmsaid'])==0)
     {   
 header('location:index.php');
@@ -33,22 +33,22 @@ $error="Something went wrong. Please try again";
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    
+    <title>Student  Management System|| Add Students</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="css/style.css" />
         
-        <!-- Title -->
-        <title>Admin | Add Leave Type</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
-        
-        <!-- Styles -->
-        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
-        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
   <style>
         .errorWrap {
     padding: 10px;
@@ -69,40 +69,58 @@ $error="Something went wrong. Please try again";
         </style>
     </head>
     <body>
-  <?php include('includes/header.php');?>
-            
-       <?php include('includes/sidebar.php');?>
-            <main class="mn-inner">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="page-title">Add Leave Type</div>
-                    </div>
-                    <div class="col s12 m12 l6">
-                        <div class="card">
-                            <div class="card-content">
-                              
-                                <div class="row">
-                                    <form class="col s12" name="chngpwd" method="post">
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+     <?php include_once('includes/header.php');?>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+      <?php include_once('includes/sidebar.php');?>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Add Class </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Add Class</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+          
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Add Class</h4>
+                   
+                    <form class="forms-sample" method="post">
+    
                                           <?php if($error){?><div class="errorWrap"><strong>ERROR</strong> : <?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-<input id="leavetype" type="text"  class="validate" autocomplete="off" name="leavetype"  required>
-                                                <label for="leavetype">Leave Type</label>
+                                        
+
+                                        
+                                            <div class="form-group">
+                                            <label for="leavetype">Leave Type</label>
+<input id="leavetype" type="text" class="form-control"  autocomplete="off" name="leavetype"  required>
+                                                
                                             </div>
 
 
-          <div class="input-field col s12">
-<textarea id="textarea1" name="description" class="materialize-textarea" name="description" length="500"></textarea>
-                                                <label for="deptshortname">Description</label>
+          <div class="form-group">
+          <label for="deptshortname">Description</label>
+<textarea id="textarea1" name="description" class="form-control"  name="description" length="500"></textarea>
+                                               
                                             </div>
  
 
 
 
 
-<div class="input-field col s12">
-<button type="submit" name="add" class="waves-effect waves-light btn indigo m-b-xs">ADD</button>
+<div class="form-group">
+<button type="submit" name="add" class="btn btn-primary mr-2">ADD</button>
 
 </div>
 
@@ -127,12 +145,22 @@ $error="Something went wrong. Please try again";
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/form_elements.js"></script>
+        <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="vendors/select2/select2.min.js"></script>
+    <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="js/typeahead.js"></script>
+    <script src="js/select2.js"></script>
+    <!-- End custom js for this page -->
         
     </body>
 </html>

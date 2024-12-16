@@ -62,11 +62,11 @@ else{
         <div class="main-panel">
           <div class="content-wrapper">
              <div class="page-header">
-              <h3 class="page-title"> Manage Class </h3>
+              <h3 class="page-title"> All Leaves</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Manage Class</li>
+                  <li class="breadcrumb-item active" aria-current="page"> All Leaves</li>
                 </ol>
               </nav>
             </div>
@@ -75,19 +75,19 @@ else{
                 <div class="card">
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
-                      <h4 class="card-title mb-sm-0">Manage Class</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Classes</a>
+                      <h4 class="card-title mb-sm-0">All Leaves</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Leaves</a>
                     </div>
                     <div class="table-responsive border rounded p-1">
                       <table class="table">
                                         <tr>
-                                            <th>#</th>
-                                            <th width="200">Employe Name</th>
-                                            <th width="120">Leave Type</th>
+                                            <th class="font-weight-bold">So.No</th>
+                                            <th class="font-weight-bold">Employe Name</th>
+                                            <th class="font-weight-bold">Leave Type</th>
 
-                                             <th width="180">Posting Date</th>                 
-                                            <th>Status</th>
-                                            <th align="center">Action</th>
+                                             <th class="font-weight-bold">Posting Date</th>                 
+                                            <th class="font-weight-bold">Status</th>
+                                            <th class="font-weight-bold">Action</th>
                                         </tr>
                                     </thead>
                                  

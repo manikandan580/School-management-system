@@ -8,13 +8,13 @@ if(!empty($_POST["classid"]))
  	echo htmlentities("invalid Class");exit;
  }
  else{
- $stmt = $dbh->prepare("SELECT StudentName,ID FROM tblstudent WHERE ClassId= :id order by StudentName");
+ $stmt = $dbh->prepare("SELECT StudentName, FROM tblstudent StudentId WHERE ClassId= :id order by StudentName");
  $stmt->execute(array(':id' => $cid));
  ?><option value="">Select Student </option><?php
  while($row=$stmt->fetch(PDO::FETCH_ASSOC))
  {
   ?>
-  <option value="<?php echo htmlentities($row['ID']); ?>"><?php echo htmlentities($row['StudentName']); ?></option>
+  <option value="<?php echo htmlentities($row['StudentId']); ?>"><?php echo htmlentities($row['StudentName']); ?></option>
   <?php
  }
 }

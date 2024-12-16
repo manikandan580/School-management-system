@@ -81,13 +81,13 @@ else{
                       <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th width="200">Employe Name</th>
-                                            <th width="120">Leave Type</th>
+                                            <th class="font-weight-bold">So.N0</th>
+                                            <th class="font-weight-bold">Employe Name</th>
+                                            <th class="font-weight-bold">Leave Type</th>
 
-                                             <th width="180">Posting Date</th>                 
-                                            <th>Status</th>
-                                            <th align="center">Action</th>
+                                             <th class="font-weight-bold">Posting Date</th>                 
+                                            <th class="font-weight-bold">Status</th>
+                                            <th class="font-weight-bold">Action</th>
                                         </tr>
                                     </thead>
                                  
@@ -125,7 +125,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="btn btn-primary mr-2"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

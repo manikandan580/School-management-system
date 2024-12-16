@@ -104,6 +104,21 @@ foreach($results as $row)
               </div>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic7">
+                <span class="menu-title">Leave Type
+
+                </span>
+                <i class="icon-people menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic5">
+                <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="addleavetype.php">Add Leaves</a></li>
+                <li class="nav-item"> <a class="nav-link" href="manageleavetype.php">Manage Leaves</a></li>
+                </ul>
+              </div>
+            </li>
+
             
 
             
@@ -121,7 +136,7 @@ foreach($results as $row)
                   <li class="nav-item"> <a class="nav-link" href="pending-leavehistory.php">Pending Leaves</a></li>
                   <li class="nav-item"> <a class="nav-link" href="approvedleave-history.php">Approved Leaves</a></li>
                   <li class="nav-item"> <a class="nav-link" href="notapproved-leaves.php">Notapproved Leaves</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="apply-leave.php">Leave Form</a></li>
+                  
                 </ul>
               </div>
             </li>

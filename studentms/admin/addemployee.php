@@ -56,7 +56,7 @@ $error="Something went wrong. Please try again";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Student  Management System|| Add Students</title>
+    <title>School Management System|| Add Students</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
@@ -151,11 +151,11 @@ error:function (){}
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Add Students </h3>
+              <h3 class="page-title"> Add Staff </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Add Students</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Add Staff</li>
                 </ol>
               </nav>
             </div>
@@ -164,7 +164,7 @@ error:function (){}
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Add Students</h4>
+                    <h4 class="card-title" style="text-align: center;">Add Staff</h4>
                    
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
 
