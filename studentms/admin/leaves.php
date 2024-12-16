@@ -15,7 +15,8 @@ else{
 <html lang="en">
     <head>
         
-    <title>Student  Management System|||Manage Notice</title>
+        <!-- Title -->
+        <title>Student  Management System|||Manage Class</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
@@ -61,11 +62,11 @@ else{
         <div class="main-panel">
           <div class="content-wrapper">
              <div class="page-header">
-              <h3 class="page-title"> All leaves </h3>
+              <h3 class="page-title"> Manage Class </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> All Leaves</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage Class</li>
                 </ol>
               </nav>
             </div>
@@ -74,21 +75,19 @@ else{
                 <div class="card">
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
-                      <h4 class="card-title mb-sm-0">All Leaves</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Leaves</a>
+                      <h4 class="card-title mb-sm-0">Manage Class</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Classes</a>
                     </div>
-                                <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                <table id="example" class="table ">
-                                    <thead>
+                    <div class="table-responsive border rounded p-1">
+                      <table class="table">
                                         <tr>
-                                            <th class="font-weight-bold" >#</th>
-                                            <th class="font-weight-bold">Employe Name</th>
-                                            <th class="font-weight-bold">Leave Type</th>
+                                            <th>#</th>
+                                            <th width="200">Employe Name</th>
+                                            <th width="120">Leave Type</th>
 
-                                             <th class="font-weight-bold">Posting Date</th>                 
-                                            <th class="font-weight-bold">Status</th>
-                                            <th class="font-weight-bold">Action</th>
-                                            
+                                             <th width="180">Posting Date</th>                 
+                                            <th>Status</th>
+                                            <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
@@ -123,7 +122,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="btn btn-primary mr-2"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

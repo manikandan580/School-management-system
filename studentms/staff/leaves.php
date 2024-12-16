@@ -155,6 +155,15 @@ if($stats==1){
     <!-- Custom js for this page -->
     <script src="./js/dashboard.js"></script>
     <!-- End custom js for this page -->
+
+    <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="assets/js/alpha.min.js"></script>
+        <script src="assets/js/pages/form_elements.js"></script>
+          <script src="assets/js/pages/form-input-mask.js"></script>
+                <script src="assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
         
     </body>
 </html>
