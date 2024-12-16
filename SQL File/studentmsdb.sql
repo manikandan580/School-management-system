@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 16, 2024 at 02:33 AM
+-- Generation Time: Dec 16, 2024 at 09:14 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -29,21 +29,21 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `tbladmin`;
 CREATE TABLE IF NOT EXISTS `tbladmin` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `AdminName` varchar(120) DEFAULT NULL,
   `UserName` varchar(120) DEFAULT NULL,
   `MobileNumber` bigint DEFAULT NULL,
   `Email` varchar(200) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbladmin`
 --
 
-INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
+INSERT INTO `tbladmin` (`id`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
 (1, 'Admin', 'admin', 8979555558, 'admin@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2019-10-11 04:36:52');
 
 -- --------------------------------------------------------
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `tblemployees` (
 --
 
 INSERT INTO `tblemployees` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `Password`, `Gender`, `Dob`, `Department`, `Address`, `City`, `Country`, `Phonenumber`, `Status`, `RegDate`) VALUES
-(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Information Technology', 'A 123 XYZ Apartment ', 'New Delhi', 'India', '12121212', 1, '2023-08-31 21:56:23'),
+(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Human Resource', 'A 123 XYZ Apartment ', 'New Delhi', 'India', '12121212', 1, '2023-08-31 21:56:23'),
 (2, '10235612', 'Garima', 'Yadav', 'grama123@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Female', '2 January, 1997', 'Accounts', 'Hno 123 ABC Colony', 'New Delhi', 'India', '7485963210', 1, '2023-08-31 22:02:47'),
 (5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Accounts', 'H no 1', 'Ghaziabad ', 'India', '23232323', 1, '2023-09-01 18:38:23');
 
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `tblleaves` (
   `empid` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `empid` (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblleaves`
@@ -172,7 +172,8 @@ INSERT INTO `tblleaves` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`,
 (14, 'Sick Leaves', '26/02/2022', '22/02/2022', 'werdtcyfjhrf', '2024-12-14 20:04:29', NULL, NULL, 0, 1, 1),
 (15, 'Casual Leaves', '14/02/2012', '12/02/2012', 'rcrcqe', '2024-12-14 20:13:05', 'no', '2024-12-16 6:22:26 ', 2, 1, 1),
 (16, 'Sick Leaves', '24/04/2014', '23/04/2014', '43rx', '2024-12-14 21:29:44', NULL, NULL, 0, 1, 5),
-(39, 'Earned Leaves', '12/11/2011', '11/11/2011', 'df', '2024-12-16 00:51:32', NULL, NULL, 0, 0, 5);
+(39, 'Earned Leaves', '12/11/2011', '11/11/2011', 'df', '2024-12-16 00:51:32', NULL, NULL, 0, 0, 5),
+(40, 'Sick Leaves', '12/11/2011', '11/11/2011', 'manikansagh', '2024-12-16 02:45:20', NULL, NULL, 0, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `tblleavetype` (
   `Description` mediumtext,
   `CreationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblleavetype`
@@ -207,19 +208,19 @@ INSERT INTO `tblleavetype` (`id`, `LeaveType`, `Description`, `CreationDate`) VA
 
 DROP TABLE IF EXISTS `tblnotice`;
 CREATE TABLE IF NOT EXISTS `tblnotice` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `NoticeTitle` mediumtext,
   `ClassId` int DEFAULT NULL,
   `NoticeMsg` mediumtext,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblnotice`
 --
 
-INSERT INTO `tblnotice` (`ID`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationDate`) VALUES
+INSERT INTO `tblnotice` (`id`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationDate`) VALUES
 (2, 'Marks of Unit Test.', 3, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
 (3, 'Marks of Unit Test.', 2, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
 (4, 'Test', 3, 'This is for testing.', '2022-02-02 18:17:03'),
@@ -233,21 +234,21 @@ INSERT INTO `tblnotice` (`ID`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationD
 
 DROP TABLE IF EXISTS `tblpage`;
 CREATE TABLE IF NOT EXISTS `tblpage` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `PageType` varchar(200) DEFAULT NULL,
   `PageTitle` mediumtext,
   `PageDescription` mediumtext,
   `Email` varchar(200) DEFAULT NULL,
   `MobileNumber` bigint DEFAULT NULL,
   `UpdationDate` date DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpage`
 --
 
-INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
+INSERT INTO `tblpage` (`id`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
 (1, 'aboutus', 'About Us', '<div style=\"text-align: start;\"><font color=\"#7b8898\" face=\"Mercury SSm A, Mercury SSm B, Georgia, Times, Times New Roman, Microsoft YaHei New, Microsoft Yahei, ????, ??, SimSun, STXihei, ????, serif\"><span style=\"font-size: 26px;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></font><br></div>', NULL, NULL, NULL),
 (2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'infodata@gmail.com', 7896541236, NULL);
 
@@ -259,18 +260,18 @@ INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`
 
 DROP TABLE IF EXISTS `tblpublicnotice`;
 CREATE TABLE IF NOT EXISTS `tblpublicnotice` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `NoticeTitle` varchar(200) DEFAULT NULL,
   `NoticeMessage` mediumtext,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpublicnotice`
 --
 
-INSERT INTO `tblpublicnotice` (`ID`, `NoticeTitle`, `NoticeMessage`, `CreationDate`) VALUES
+INSERT INTO `tblpublicnotice` (`id`, `NoticeTitle`, `NoticeMessage`, `CreationDate`) VALUES
 (1, 'School will re-open', 'Consult your class teacher.', '2022-01-20 09:11:57'),
 (2, 'Test Public Notice', 'This is for Testing\r\n', '2022-02-02 19:04:10');
 
@@ -290,36 +291,43 @@ CREATE TABLE IF NOT EXISTS `tblresult` (
   `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblresult`
 --
 
 INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `PostingDate`, `UpdationDate`) VALUES
-(2, 1, 1, 2, 100, '2024-05-10 05:00:57', NULL),
-(3, 1, 1, 1, 80, '2024-05-10 05:00:57', NULL),
-(4, 1, 1, 5, 78, '2024-05-10 05:00:57', NULL),
-(5, 1, 1, 4, 60, '2024-05-10 05:00:57', NULL),
-(6, 2, 4, 2, 90, '2024-05-10 05:00:57', NULL),
-(7, 2, 4, 1, 75, '2024-05-10 05:00:57', NULL),
-(8, 2, 4, 5, 56, '2024-05-10 05:00:57', NULL),
-(9, 2, 4, 4, 80, '2024-05-10 05:00:57', NULL),
-(10, 4, 7, 2, 54, '2024-05-10 05:00:57', NULL),
-(11, 4, 7, 1, 85, '2024-05-10 05:00:57', NULL),
-(12, 4, 7, 5, 55, '2024-05-10 05:00:57', NULL),
-(13, 4, 7, 7, 65, '2024-05-10 05:00:57', NULL),
-(14, 5, 8, 2, 75, '2024-05-10 05:00:57', NULL),
-(15, 5, 8, 1, 56, '2024-05-10 05:00:57', NULL),
-(16, 5, 8, 5, 52, '2024-05-10 05:00:57', NULL),
-(17, 5, 8, 4, 80, '2024-05-10 05:00:57', NULL),
-(18, 6, 9, 8, 80, '2024-05-20 09:50:18', NULL),
-(19, 6, 9, 8, 70, '2024-05-20 09:50:18', NULL),
-(20, 6, 9, 2, 90, '2024-05-20 09:50:18', NULL),
-(21, 6, 9, 1, 60, '2024-05-20 09:50:18', NULL),
-(22, 7, 1, 2, 67, '2024-12-14 08:11:54', NULL),
-(23, 7, 1, 5, 98, '2024-12-14 08:11:54', NULL),
-(24, 7, 1, 4, 67, '2024-12-14 08:11:54', NULL);
+(2, 1, 1, 1, 100, '2024-05-09 23:30:57', NULL),
+(3, 1, 1, 2, 80, '2024-05-09 23:30:57', NULL),
+(4, 1, 1, 3, 78, '2024-05-09 23:30:57', NULL),
+(5, 1, 1, 4, 60, '2024-05-09 23:30:57', NULL),
+(6, 1, 1, 5, 90, '2024-05-09 23:30:57', NULL),
+(7, 2, 2, 1, 75, '2024-05-09 23:30:57', NULL),
+(8, 2, 2, 2, 65, '2024-05-09 23:30:57', NULL),
+(9, 2, 2, 3, 80, '2024-05-09 23:30:57', NULL),
+(10, 2, 2, 4, 54, '2024-05-09 23:30:57', NULL),
+(11, 2, 2, 5, 85, '2024-05-09 23:30:57', NULL),
+(12, 3, 3, 1, 55, '2024-05-09 23:30:57', NULL),
+(13, 3, 3, 2, 65, '2024-05-09 23:30:57', NULL),
+(14, 3, 3, 3, 75, '2024-05-09 23:30:57', NULL),
+(15, 3, 3, 4, 56, '2024-05-09 23:30:57', NULL),
+(16, 3, 3, 5, 52, '2024-05-09 23:30:57', NULL),
+(17, 4, 4, 1, 80, '2024-05-09 23:30:57', NULL),
+(18, 4, 4, 2, 80, '2024-05-20 04:20:18', NULL),
+(19, 4, 4, 3, 70, '2024-05-20 04:20:18', NULL),
+(20, 4, 4, 4, 90, '2024-05-20 04:20:18', NULL),
+(21, 4, 4, 5, 60, '2024-05-20 04:20:18', NULL),
+(22, 5, 5, 1, 67, '2024-12-14 02:41:54', NULL),
+(23, 5, 5, 2, 98, '2024-12-14 02:41:54', NULL),
+(24, 5, 5, 3, 67, '2024-12-14 02:41:54', NULL),
+(25, 5, 5, 4, 78, '2024-12-14 02:41:54', NULL),
+(26, 5, 5, 5, 79, '2024-12-14 02:41:54', NULL),
+(27, 6, 6, 1, 78, '2024-12-14 02:41:54', NULL),
+(28, 6, 6, 2, 89, '2024-12-14 02:41:54', NULL),
+(29, 6, 6, 3, 99, '2024-12-14 02:41:54', NULL),
+(30, 6, 6, 4, 97, '2024-12-14 02:41:54', NULL),
+(31, 6, 6, 5, 87, '2024-12-14 02:41:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -436,14 +444,11 @@ CREATE TABLE IF NOT EXISTS `tblsubjects` (
 --
 
 INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
-(1, 'Maths', 'MTH01', '2024-04-25 17:30:57', NULL),
-(2, 'English', 'ENG11', '2024-04-25 17:30:57', NULL),
-(4, 'Science', 'SC1', '2024-04-25 17:30:57', NULL),
-(5, 'Music', 'MS', '2024-04-25 17:30:57', NULL),
-(6, 'Social Studies', 'SS08', '2024-04-25 17:30:57', NULL),
-(7, 'Physics', 'PH03', '2024-04-25 17:30:57', NULL),
-(8, 'Chemistry', 'CH65', '2024-04-25 17:30:57', NULL),
-(9, 'rw', 'wert', '2024-12-14 08:12:28', NULL);
+(1, 'Tamil', 'TA12', '2024-04-25 17:30:57', NULL),
+(2, 'English', 'ENG12', '2024-04-25 17:30:57', NULL),
+(3, 'Maths', 'MA12', '2024-04-25 17:30:57', NULL),
+(4, 'Science', 'SC12', '2024-04-25 17:30:57', NULL),
+(5, 'Social Science', 'SS12', '2024-04-25 17:30:57', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
