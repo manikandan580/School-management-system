@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 15, 2024 at 03:14 AM
+-- Generation Time: Dec 16, 2024 at 02:33 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -136,10 +136,7 @@ CREATE TABLE IF NOT EXISTS `tblemployees` (
 INSERT INTO `tblemployees` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `Password`, `Gender`, `Dob`, `Department`, `Address`, `City`, `Country`, `Phonenumber`, `Status`, `RegDate`) VALUES
 (1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Information Technology', 'A 123 XYZ Apartment ', 'New Delhi', 'India', '12121212', 1, '2023-08-31 21:56:23'),
 (2, '10235612', 'Garima', 'Yadav', 'grama123@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Female', '2 January, 1997', 'Accounts', 'Hno 123 ABC Colony', 'New Delhi', 'India', '7485963210', 1, '2023-08-31 22:02:47'),
-(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Accounts', 'H no 1', 'Ghaziabad ', 'India', '23232323', 1, '2023-09-01 18:38:23'),
-(6, 'wqe', 'weqr', 'wer', 'wert@gmail.com', 'b59c67bf196a4758191e42f76670ceba', 'Male', '0023-03-12', 'Accounts', 'ewdwd', 'ewds', 'sdf', '21343657', 1, '2024-12-14 08:54:01'),
-(7, 'e3rt', '346', 'ert', 'e45yt@gmail.com', 'feced7b1f89a6746d54050521fdaee0d', 'Male', '1997-02-20', 'Information Technology', 'qwr5467yu', 'rtuj', 'erwy78', '231456', 1, '2024-12-15 01:28:29'),
-(8, 'wetr56', 'eru5', 'w4euy76u', 'rgytryh@gmail.com', '15a3e6391f6d57b4f8aabe9bc57787ca', 'Male', '1996-02-15', 'Human Resource', 'wertyui', 'ewrghuyj', 'eetysbhs', '123456678', 1, '2024-12-15 01:30:35');
+(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Accounts', 'H no 1', 'Ghaziabad ', 'India', '23232323', 1, '2023-09-01 18:38:23');
 
 -- --------------------------------------------------------
 
@@ -162,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `tblleaves` (
   `empid` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `empid` (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblleaves`
@@ -173,9 +170,9 @@ INSERT INTO `tblleaves` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`,
 (12, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
 (13, 'Earned Leaves', '12/11/2011', '11/11/2011', 'sadscx', '2024-12-06 04:26:55', NULL, NULL, 0, 1, 1),
 (14, 'Sick Leaves', '26/02/2022', '22/02/2022', 'werdtcyfjhrf', '2024-12-14 20:04:29', NULL, NULL, 0, 1, 1),
-(15, 'Casual Leaves', '14/02/2012', '12/02/2012', 'rcrcqe', '2024-12-14 20:13:05', NULL, NULL, 0, 0, 1),
-(16, 'Earned Leaves', '12/11/2011', '11/11/2011', 'ercv ref rt r54rt5  frf', '2024-12-15 03:07:14', NULL, NULL, 0, 1, 5),
-(17, 'Sick Leaves', '12/11/2011', '11/11/2011', 'manikandan', '2024-12-15 03:11:28', NULL, NULL, 0, 1, 5);
+(15, 'Casual Leaves', '14/02/2012', '12/02/2012', 'rcrcqe', '2024-12-14 20:13:05', 'no', '2024-12-16 6:22:26 ', 2, 1, 1),
+(16, 'Sick Leaves', '24/04/2014', '23/04/2014', '43rx', '2024-12-14 21:29:44', NULL, NULL, 0, 1, 5),
+(39, 'Earned Leaves', '12/11/2011', '11/11/2011', 'df', '2024-12-16 00:51:32', NULL, NULL, 0, 0, 5);
 
 -- --------------------------------------------------------
 
