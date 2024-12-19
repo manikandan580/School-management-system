@@ -76,7 +76,7 @@ $query->execute();
                             <th class="font-weight-bold">Class Name</th>
                             <th class="font-weight-bold">Section</th>
                             <th class="font-weight-bold">Creation Date</th>
-                            <th class="font-weight-bold">Action</th>
+                            
                             
                           </tr>
                         </thead>
@@ -113,8 +113,7 @@ foreach($results as $row)
                             <td><?php  echo htmlentities($row->Section);?></td>
                             <td><?php  echo htmlentities($row->CreationDate);?></td>
                             <td>
-                              <div><a href="edit-class-detail.php?editid=<?php echo htmlentities ($row->id);?>"><i class=""></i></a>
-                                                || <a href="manage-class.php?delid=<?php echo ($row->id);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
+                              
                             </td> 
                           </tr><?php $cnt=$cnt+1;}} ?>
                         </tbody>

@@ -2,14 +2,14 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(strlen($_SESSION['emplogin'])==0)
+if(strlen($_SESSION['sturecmsstuid'])==0)
     {   
 header('location:index.php');
 }
 else{
 if(isset($_POST['apply']))
 {
-$stuid=$_SESSION['emplogin'];
+$stuid=$_SESSION['sturecmsstuid'];
  $leavetype=$_POST['leavetype'];
 $fromdate=$_POST['fromdate'];  
 $todate=$_POST['todate'];

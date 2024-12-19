@@ -13,26 +13,28 @@ $empid=$_POST['empcode'];
 $fname=$_POST['firstName'];
 $lname=$_POST['lastName'];   
 $email=$_POST['email']; 
+$classid=$_POST['class'];
 $password=md5($_POST['password']); 
 $gender=$_POST['gender']; 
 $dob=$_POST['dob']; 
-$department=$_POST['department']; 
+$subjects=$_POST['subjects']; 
 $address=$_POST['address']; 
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
 $status=1;
 
-$sql="INSERT INTO tblemployees(EmpId,FirstName,LastName,EmailId,Password,Gender,Dob,Department,Address,City,Country,Phonenumber,Status) VALUES(:empid,:fname,:lname,:email,:password,:gender,:dob,:department,:address,:city,:country,:mobileno,:status)";
+$sql="INSERT INTO tblemployees(EmpId,FirstName,LastName,EmailId,ClassId,Password,Gender,Dob,Subjects,Address,City,Country,Phonenumber,Status) VALUES(:empid,:fname,:lname,:email,:classid,:password,:gender,:dob,:subjects,:address,:city,:country,:mobileno,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':empid',$empid,PDO::PARAM_STR);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
 $query->bindParam(':password',$password,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':department',$department,PDO::PARAM_STR);
+$query->bindParam(':subjects',$subjects,PDO::PARAM_STR);
 $query->bindParam(':address',$address,PDO::PARAM_STR);
 $query->bindParam(':city',$city,PDO::PARAM_STR);
 $query->bindParam(':country',$country,PDO::PARAM_STR);
@@ -198,6 +200,25 @@ error:function (){}
                       </div>
 
                       <div class="form-group">
+                                                        <label for="default" class="col-sm-2 control-label">Class</label>
+                                                        <div class="col-sm-10">
+ <select name="class" class="form-control" id="default" required="required">
+<option value="">Select Class</option>
+<?php $sql = "SELECT * from tblclass";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{   ?>
+<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName); ?>&nbsp; Section-<?php echo htmlentities($result->Section); ?></option>
+<?php }} ?>
+ </select>
+                                                        </div>
+                                                    </div>
+
+                      <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" value="" class="form-control" autocomplete="off" required>
                       </div>
@@ -221,6 +242,24 @@ error:function (){}
                         <label for="birthdate"> Birthdate</label>
                         <input type="date" id="birthdate" name="dob" value="" class="form-control" autocomplete="off">
                       </div>
+
+                      <div class="form-group">
+                      <label for="subjects"> Subject</label>
+<select  name="subjects" class="form-control" autocomplete="off">
+<option value="">Subject...</option>
+<?php $sql = "SELECT SubjectName from tblsubjects";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{   ?>                                            
+<option value="<?php echo htmlentities($result->SubjectName);?>"><?php echo htmlentities($result->SubjectName);?></option>
+<?php }} ?>
+</select>
+</div>
 
                       
 

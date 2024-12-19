@@ -96,7 +96,8 @@ header('location:manageemployee.php');
                                         <th class="font-weight-bold">S.No</th>
                             <th class="font-weight-bold">Staff ID</th>
                             <th class="font-weight-bold">Staff name</th>
-                            <th class="font-weight-bold">department</th>
+                            <th class="font-weight-bold">Subject</th>
+                            <th class="font-weight-bold">Staff ClassName</th>
                             <th class="font-weight-bold">Status</th>
                             <th class="font-weight-bold">RegDate Date</th>
                             <th class="font-weight-bold">Action</th>
@@ -105,7 +106,11 @@ header('location:manageemployee.php');
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees";
+                                    
+                                    
+<?php $sql = "SELECT tblemployees.id,tblemployees.EmpId, tblemployees.FirstName,tblemployees.LastName,tblemployees.Subjects,Status, tblemployees.RegDate,tblclass.ClassName,tblclass.Section,tblemployees.id from  tblemployees
+join tblclass on tblclass.id = tblemployees.ClassId";
+
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -118,7 +123,8 @@ foreach($results as $result)
                                             <td> <?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->EmpId);?></td>
                                             <td><?php echo htmlentities($result->FirstName);?>&nbsp;<?php echo htmlentities($result->LastName);?></td>
-                                            <td><?php echo htmlentities($result->Department);?></td>
+                                            <td><?php echo htmlentities($result->Subjects);?></td>
+                                            <td><?php  echo htmlentities($result->ClassName);?> &nbsp;<?php  echo htmlentities($result->Section);?></td>
                                              <td><?php $stats=$result->Status;
 if($stats){
                                              ?>

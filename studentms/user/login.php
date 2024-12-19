@@ -18,7 +18,7 @@ $query-> bindParam(':password', $password, PDO::PARAM_STR);
 foreach ($results as $result) {
 $_SESSION['sturecmsstuid']=$result->StuID;
 $_SESSION['sturecmsuid']=$result->StudentId;
-$_SESSION['stuclass']=$result->ClassId;
+$_SESSION['classid']=$result->ClassId;
 }
 
   if(!empty($_POST["remember"])) {

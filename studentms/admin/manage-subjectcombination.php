@@ -37,86 +37,54 @@ $msg="Subject Deactivate successfully";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Manage Subjects Combination</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
-        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
-        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
-        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
-        <link rel="stylesheet" type="text/css" href="js/DataTables/datatables.min.css"/>
-        <link rel="stylesheet" href="css/main.css" media="screen" >
-        <script src="js/modernizr/modernizr.min.js"></script>
-          <style>
-        .errorWrap {
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #dd3d36;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-.succWrap{
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #5cb85c;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
+    <title>Student  Management System|||Manage Students</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="./vendors/chartist/chartist.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- End layout styles -->
+       
         </style>
     </head>
-    <body class="top-navbar-fixed">
-        <div class="main-wrapper">
-
-            <!-- ========== TOP NAVBAR ========== -->
-   <?php include('includes/topbar.php');?> 
-            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
-            <div class="content-wrapper">
-                <div class="content-container">
-<?php include('includes/leftbar.php');?>  
-
-                    <div class="main-page">
-                        <div class="container-fluid">
-                            <div class="row page-title-div">
-                                <div class="col-md-6">
-                                    <h2 class="title">Manage Subjects Combination</h2>
-                                
-                                </div>
-                                
-                                <!-- /.col-md-6 text-right -->
-                            </div>
-                            <!-- /.row -->
-                            <div class="row breadcrumb-div">
-                                <div class="col-md-6">
-                                    <ul class="breadcrumb">
-            							<li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-                                        <li> Subjects</li>
-            							<li class="active">Manage Subjects Combination</li>
-            						</ul>
-                                </div>
-                             
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.container-fluid -->
-
-                        <section class="section">
-                            <div class="container-fluid">
-
-                             
-
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <div class="panel-title">
-                                                    <h5>View Subjects Combination Info</h5>
-                                                </div>
-                                            </div>
+    <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+     <?php include_once('includes/header.php');?>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <?php include_once('includes/sidebar.php');?>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+             <div class="page-header">
+              <h3 class="page-title"> Manage Students </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage Students</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex align-items-center mb-4">
+                      <h4 class="card-title mb-sm-0">Manage Students</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Students</a>
+                    </div>
+                    
+                      <table class="table">
 <?php if($msg){?>
 <div class="alert alert-success left-icon-alert" role="alert">
  <strong>Well done!</strong><?php echo htmlentities($msg); ?>
@@ -126,29 +94,29 @@ else if($error){?>
                                             <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
                                         </div>
                                         <?php } ?>
-                                            <div class="panel-body p-20">
+                                        <div class="table-responsive border rounded p-1">
 
-                                                <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                                        <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>Class and Section</th>
-                                                            <th>Subject </th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
+                                                            <th class="font-weight-bold">#</th>
+                                                            <th class="font-weight-bold">Class and Section</th>
+                                                            <th class="font-weight-bold">Subject </th>
+                                                            <th class="font-weight-bold">Status</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                          <th>#</th>
-                                                            <th>Class and Section</th>
-                                                            <th>Subject </th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
+                                                          <th class="font-weight-bold">#</th>
+                                                            <th class="font-weight-bold">Class and Section</th>
+                                                            <th class="font-weight-bold">Subject </th>
+                                                            <th class="font-weight-bold">Status</th>
+                                                            <th class="font-weight-bold">Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT tblclasses.ClassName,tblclasses.Section,tblsubjects.SubjectName,tblsubjectcombination.id as scid,tblsubjectcombination.status from tblsubjectcombination join tblclasses on tblclasses.id=tblsubjectcombination.ClassId  join tblsubjects on tblsubjects.id=tblsubjectcombination.SubjectId";
+<?php $sql = "SELECT tblclass.ClassName,tblclass.Section,tblsubjects.SubjectName,tblsubjectcombination.id as scid,tblsubjectcombination.status from tblsubjectcombination join tblclass on tblclass.id=tblsubjectcombination.ClassId  join tblsubjects on tblsubjects.id=tblsubjectcombination.SubjectId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -175,9 +143,9 @@ else
 <td>
 <?php if($stts=='0')
 { ?>
-<a href="manage-subjectcombination.php?acid=<?php echo htmlentities($result->scid);?>" onclick="confirm('do you really want to ativate this subject');"><i class="fa fa-check" title="Acticvate Record"></i> </a><?php } else {?>
+<a href="manage-subjectcombination.php?acid=<?php echo htmlentities($result->scid);?>" onclick="confirm('do you really want to ativate this subject');"><i  class="icon-eye"></i> </a><?php } else {?>
 
-<a href="manage-subjectcombination.php?did=<?php echo htmlentities($result->scid);?>" onclick="confirm('do you really want to deativate this subject');"><i class="fa fa-times" title="Deactivate Record"></i> </a>
+<a href="manage-subjectcombination.php?did=<?php echo htmlentities($result->scid);?>" onclick="confirm('do you really want to deativate this subject');"><i  class="icon-eye" ></i> </a>
 <?php }?>
 </td>
 </tr>
@@ -222,26 +190,33 @@ else
             <!-- /.content-wrapper -->
 
         </div>
-        <script src="js/jquery/jquery-2.2.4.min.js"></script>
-        <script src="js/bootstrap/bootstrap.min.js"></script>
-        <script src="js/pace/pace.min.js"></script>
-        <script src="js/lobipanel/lobipanel.min.js"></script>
-        <script src="js/iscroll/iscroll.js"></script>
-        <script src="js/prism/prism.js"></script>
-        <script src="js/DataTables/datatables.min.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-            $(function($) {
-                $('#example').DataTable();
-
-                $('#example2').DataTable( {
-                    "scrollY":        "300px",
-                    "scrollCollapse": true,
-                    "paging":         false
-                } );
-
-                $('#example3').DataTable();
-            });
+       <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <?php include_once('includes/footer.php');?>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./vendors/chart.js/Chart.min.js"></script>
+    <script src="./vendors/moment/moment.min.js"></script>
+    <script src="./vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="./vendors/chartist/chartist.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+            
         </script>
     </body>
 </html>

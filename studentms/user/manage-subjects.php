@@ -107,7 +107,7 @@ else if($error){?>
                                                             <th class="font-weight-bold">Subject Code</th>
                                                             <th class="font-weight-bold">Creation Date</th>
                                                             <th class="font-weight-bold">Updation Date</th>
-                                                            <th class="font-weight-bold">Action</th>
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -117,7 +117,7 @@ else if($error){?>
                                                             <th class="font-weight-bold">Subject Code</th>
                                                             <th class="font-weight-bold">Creation Date</th>
                                                             <th class="font-weight-bold">Updation Date</th>
-                                                            <th class="font-weight-bold">Action</th>
+                                                            
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
@@ -136,11 +136,7 @@ foreach($results as $result)
                                                             <td><?php echo htmlentities($result->SubjectCode);?></td>
                                                             <td><?php echo htmlentities($result->Creationdate);?></td>
                                                             <td><?php echo htmlentities($result->UpdationDate);?></td>
-<td>
 
-  <a href="manage-subjects.php?id=<?php echo $result->id;?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs">Delete</a>
-
-</td>
 </tr>
 <?php $cnt=$cnt+1;}} ?>
                                                        

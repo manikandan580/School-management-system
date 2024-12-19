@@ -13,7 +13,7 @@ header('location:index.php');
 else{
 if(isset($_POST['apply']))
 {
-$empid=$_SESSION['eid'];
+$empid=$_SESSION['emplogin'];
  $leavetype=$_POST['leavetype'];
 $fromdate=$_POST['fromdate'];  
 $todate=$_POST['todate'];

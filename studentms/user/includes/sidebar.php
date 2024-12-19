@@ -45,7 +45,7 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manage-class.php">Manage Class</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-class.php">View Class</a></li>
                 </ul>
               </div>
             </li>
@@ -59,25 +59,34 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manage-subjects.php">Manage Subjects</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-subjects.php">View Subjects</a></li>
                 </ul>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
-                <span class="menu-title">Result</span>
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
+                <span class="menu-title">Leave</span>
                 <i class="icon-people menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic2">
+              <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="find-result.php">Check  ResuLt</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="apply-leave.php">Leave <form action=""></form></a></li>
                 </ul>
               </div>
             </li>
 
             
+
+            
+            <li class="nav-item">
+              <a class="nav-link" href="find-result.php">
+                <span class="menu-title">View ResuLt</span>
+                <i class="icon-book-open menu-icon"></i>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="view-notice.php">
                 <span class="menu-title">View Notice</span>

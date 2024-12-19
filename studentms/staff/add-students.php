@@ -12,7 +12,7 @@ if (strlen($_SESSION['emplogin']==0)) {
  
  $roolid=$_POST['rollid'];
  $gender=$_POST['gender'];
- $classid=$_POST['class'];
+ $classid=$_POST['classid'];
  $dob=$_POST['dob'];
  $stuid=$_POST['stuid'];
  $fname=$_POST['fname'];
