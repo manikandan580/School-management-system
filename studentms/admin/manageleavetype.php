@@ -23,7 +23,7 @@ $msg="Leave type record deleted";
     <head>
         
         <!-- Title -->
-        <title>Student  Management System|||Manage Students</title>
+        <title>School  Management System|||Manage LeavesTypes</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
@@ -69,11 +69,11 @@ $msg="Leave type record deleted";
         <div class="main-panel">
           <div class="content-wrapper">
              <div class="page-header">
-              <h3 class="page-title"> Manage StaFF </h3>
+              <h3 class="page-title"> Manage LeavesTypes </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Manage Staff</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage LeavesTypes</li>
                 </ol>
               </nav>
             </div>
@@ -82,8 +82,8 @@ $msg="Leave type record deleted";
                 <div class="card">
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
-                      <h4 class="card-title mb-sm-0">Manage Staff</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Staff</a>
+                      <h4 class="card-title mb-sm-0">Manage LeavesTypes</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all LeavesTypes</a>
                     </div>
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                 <div class="table-responsive border rounded p-1">

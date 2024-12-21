@@ -45,7 +45,7 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manage-class.php">Manage Class</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-class.php">View Class</a></li>
                 </ul>
               </div>
             </li>
@@ -57,7 +57,7 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manage-students.php">Manage Students</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-students.php">View Students</a></li>
                 </ul>
               </div>
             </li>
@@ -71,7 +71,7 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manage-subjects.php">Manage Subjects</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-subjects.php">View Subjects</a></li>
                 </ul>
               </div>
             </li>
@@ -99,7 +99,7 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
                   
-                  <li class="nav-item"> <a class="nav-link" href="manageemployee.php">Manage Staff</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manageemployee.php">View Staff</a></li>
                 </ul>
               </div>
             </li>
@@ -124,15 +124,15 @@ foreach($results as $row)
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic6">
-                <span class="menu-title">Leave
+                <span class="menu-title">Leave ManagE
 
                 </span>
                 <i class="icon-people menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic6">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="leavess.php">Leave </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="takeAttendance.php">Attendance </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="leavess.php">All leave Student </a></li>
+                  
                   
                 </ul>
               </div>

@@ -15,18 +15,18 @@ $fname=$_POST['firstName'];
 $lname=$_POST['lastName'];   
 $gender=$_POST['gender']; 
 $dob=$_POST['dob']; 
-$department=$_POST['department']; 
+$subjects=$_POST['subjects']; 
 $address=$_POST['address']; 
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:eid";
+$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Subjects=:subjects,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':department',$department,PDO::PARAM_STR);
+$query->bindParam(':subjects',$subjects,PDO::PARAM_STR);
 $query->bindParam(':address',$address,PDO::PARAM_STR);
 $query->bindParam(':city',$city,PDO::PARAM_STR);
 $query->bindParam(':country',$country,PDO::PARAM_STR);
@@ -82,7 +82,6 @@ $msg="Employee record updated Successfully";
 
     </head>
     <body>
-    <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
      <?php include_once('includes/header.php');?>
@@ -94,17 +93,22 @@ $msg="Employee record updated Successfully";
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-                        <div class="page-title">Update Department</div>
-                    </div>
-                    <div class="col s12 m12 l6">
-                        <div class="card">
-                            <div class="card-content">
-                              
-                                <div class="row">
-                                    <form class="col s12" name="chngpwd" method="post">
-                                    <div>
-                                        <h3>Update Employee Info</h3>
-                                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+              <h3 class="page-title"> Update Students </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Update Students</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+          
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Update Students</h4>
+                   
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
                                            <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                         <section>
@@ -123,7 +127,7 @@ foreach($results as $result)
 {               ?> 
  <div class="form-group">
 <label for="empcode">Employee Code(Must be unique)</label>
-<input  name="empcode"  class="form-control" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
+<input  name="empcode"  class="form-control" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text"  required>
 <span id="empid-availability" style="font-size:12px;"></span> 
 </div>
 
@@ -140,7 +144,7 @@ foreach($results as $result)
 
 <div class="form-group">
 <label for="email">Email</label>
-<input  name="email" type="email" class="form-control"  id="email" value="<?php echo htmlentities($result->EmailId);?>" readonly autocomplete="off" required>
+<input  name="email" type="email" class="form-control"  id="email" value="<?php echo htmlentities($result->EmailId);?>"  required>
 <span id="emailid-availability" style="font-size:12px;"></span> 
 </div>
 
@@ -167,18 +171,19 @@ foreach($results as $result)
                                                     
 
 <div class="form-group">
-<select  name="department"class="form-control"  autocomplete="off">
-<option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option>
-<?php $sql = "SELECT DepartmentName from tbldepartments";
+                      <label for="subjects"> Subject</label>
+<select  name="subjects" class="form-control" autocomplete="off">
+<option value="">Subject...</option>
+<?php $sql = "SELECT SubjectName from tblsubjects";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
 if($query->rowCount() > 0)
 {
-foreach($results as $resultt)
+foreach($results as $result)
 {   ?>                                            
-<option value="<?php echo htmlentities($resultt->DepartmentName);?>"><?php echo htmlentities($resultt->DepartmentName);?></option>
+<option value="<?php echo htmlentities($result->SubjectName);?>"><?php echo htmlentities($result->SubjectName);?></option>
 <?php }} ?>
 </select>
 </div>

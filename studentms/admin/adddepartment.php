@@ -37,7 +37,7 @@ $error="Something went wrong. Please try again";
     <head>
         
         <!-- Title -->
-        <title>Student  Management System|| Add Department</title>
+        <title>School  Management System|| Add Department</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">

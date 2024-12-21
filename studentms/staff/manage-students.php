@@ -78,7 +78,7 @@ $query->execute();
                             <th class="font-weight-bold">Student Name</th>
                             <th class="font-weight-bold">Student Email</th>
                             <th class="font-weight-bold">Admissin Date</th>
-                            <th class="font-weight-bold">Action</th>
+                            
                             
                           </tr>
                         </thead>
@@ -117,8 +117,7 @@ foreach($results as $row)
                             <td><?php  echo htmlentities($row->StudentEmail);?></td>
                             <td><?php  echo htmlentities($row->DateofAdmission);?></td>
                             <td>
-                              <div><a href="edit-student-detail.php?editid=<?php echo htmlentities ($row->sid);?>"><i class="icon-eye"></i></a>
-                                                || <a href="manage-students.php?delid=<?php echo ($row->sid);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>
+                              
                             </td> 
                           </tr><?php $cnt=$cnt+1;}} ?>
                         </tbody>

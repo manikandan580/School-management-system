@@ -36,7 +36,7 @@ $error="Something went wrong. Please try again";
     <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Add Subject </title>
+        <title>Add Subject Combination </title>
         <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -64,11 +64,11 @@ $error="Something went wrong. Please try again";
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Add Subject </h3>
+              <h3 class="page-title"> Add Subject Combination </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Add Subject</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Add Subject Combination</li>
                 </ol>
               </nav>
             </div>
@@ -77,7 +77,7 @@ $error="Something went wrong. Please try again";
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Add Subject</h4>
+                    <h4 class="card-title" style="text-align: center;">Add Subject Combination</h4>
                   
 
                     <div class="row breadcrumb-div">

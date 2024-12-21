@@ -9,9 +9,8 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
   {
  $stuname=$_POST['stuname'];
  $stuemail=$_POST['stuemail'];
- $stuclass=$_POST['stuclass'];
+ $classid=$_POST['classid'];
  $gender=$_POST['gender'];
- $roolid=$_POST['rollid'];
  $dob=$_POST['dob'];
  $stuid=$_POST['stuid'];
  $fname=$_POST['fname'];
@@ -20,12 +19,11 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $altconnum=$_POST['altconnum'];
  $address=$_POST['address'];
  $eid=$_GET['editid'];
-$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,StudentClass=:stuclass,Gender=:gender,RollId=:rollid,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where StudentId=:eid";
+$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,ClassId=:classid,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where ID=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':stuname',$stuname,PDO::PARAM_STR);
 $query->bindParam(':stuemail',$stuemail,PDO::PARAM_STR);
-$query->bindParam(':stuclass',$stuclass,PDO::PARAM_STR);
-$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
 $query->bindParam(':stuid',$stuid,PDO::PARAM_STR);
@@ -90,7 +88,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                       <?php
 $eid=$_GET['editid'];
-$sql="SELECT tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.StudentClass,tblstudent.Gender,tblstudent.RollId,tblstudent.DOB,tblstudent.StuID,tblstudent.FatherName,tblstudent.MotherName,tblstudent.ContactNumber,tblstudent.AltenateNumber,tblstudent.Address,tblstudent.UserName,tblstudent.Password,tblstudent.Image,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:eid";
+$sql="SELECT tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.ClassId,tblstudent.Gender,tblstudent.DOB,tblstudent.StuID,tblstudent.FatherName,tblstudent.MotherName,tblstudent.ContactNumber,tblstudent.AltenateNumber,tblstudent.Address,tblstudent.UserName,tblstudent.Password,tblstudent.Image,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
@@ -110,8 +108,8 @@ foreach($results as $row)
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Student Class</label>
-                        <select  name="stuclass" class="form-control" required='true'>
-                          <option value="<?php  echo htmlentities($row->StudentClass);?>"><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></option>
+                        <select  name="classid" class="form-control" required='true'>
+                          <option value="<?php  echo htmlentities($row->Classid);?>"><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></option>
                          <?php 
 
 $sql2 = "SELECT * from    tblclass ";
@@ -134,12 +132,6 @@ foreach($result2 as $row1)
                           <option value="Female">Female</option>
                         </select>
                       </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputName1">Roll No</label>
-                        <input type="text" name="rollid" value="<?php  echo htmlentities($row->RollId);?>" maxlength="5" class="form-control" required='true'>
-                      </div>
-
                       <div class="form-group">
                         <label for="exampleInputName1">Date of Birth</label>
                         <input type="date" name="dob" value="<?php  echo htmlentities($row->DOB);?>" class="form-control" required='true'>

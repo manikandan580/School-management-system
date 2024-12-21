@@ -100,7 +100,7 @@ header('location:manageemployee.php');
                             <th class="font-weight-bold">Staff ClassName</th>
                             <th class="font-weight-bold">Status</th>
                             <th class="font-weight-bold">RegDate Date</th>
-                            <th class="font-weight-bold">Action</th>
+                           
                                             
                                         </tr>
                                     </thead>
@@ -135,15 +135,7 @@ if($stats){
 
 
                                              </td>
-                                              <td><?php echo htmlentities($result->RegDate);?></td>
-                                            <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>"><i class="icon-eye"></i></a>
-                                        <?php if($result->Status==1)
- {?>
-||<a href="manageemployee.php?inid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to inactive this Employe?');"" > <i class="icon-trash" ></i>
-<?php } else {?>
-
-                                            <a href="manageemployee.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to active this employee?');""><i class="material-icons" title="Active">done</i>
-                                            <?php } ?> </td>
+                                              <td>
                                         </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

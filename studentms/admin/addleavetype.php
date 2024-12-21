@@ -34,7 +34,7 @@ $error="Something went wrong. Please try again";
 <html lang="en">
     <head>
     
-    <title>Student  Management System|| Add Students</title>
+    <title>School  Management System|| Add LeavesTypes</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
@@ -80,11 +80,11 @@ $error="Something went wrong. Please try again";
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Add Class </h3>
+              <h3 class="page-title"> Add LeavesTypes </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Add Class</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Add LeavesTypes</li>
                 </ol>
               </nav>
             </div>
@@ -93,7 +93,7 @@ $error="Something went wrong. Please try again";
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Add Class</h4>
+                    <h4 class="card-title" style="text-align: center;">Add LeavesTypes</h4>
                    
                     <form class="forms-sample" method="post">
     

@@ -77,14 +77,14 @@ foreach($results as $row)
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic9" aria-expanded="false" aria-controls="ui-basic3">
                 <span class="menu-title">Subjects Combination</span>
                 <i class="icon-people menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic3">
+              <div class="collapse" id="ui-basic9">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="add-subjectcombination.php">Add Subject</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="manage-subjectcombination.php">Manage Subjects</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="add-subjectcombination.php">Add Subject Combination</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-subjectcombination.php">Manage Subjects Combination</a></li>
                 </ul>
               </div>
             </li>
