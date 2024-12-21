@@ -10,6 +10,7 @@ else{
 if(isset($_POST['apply']))
 {
 $stuid=$_SESSION['sturecmsstuid'];
+
  $leavetype=$_POST['leavetype'];
 $fromdate=$_POST['fromdate'];  
 $todate=$_POST['todate'];
@@ -19,15 +20,16 @@ $isread=0;
 if($fromdate > $todate){
                 $error=" ToDate should be greater than FromDate ";
            }
-$sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
+$sql="INSERT INTO tblleavess(LeaveType,ToDate,FromDate,Description,Status,IsRead,stuid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:stuid)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
+
 $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
 $query->bindParam(':todate',$todate,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->bindParam(':empid',$empid,PDO::PARAM_STR);
+$query->bindParam(':stuid',$stuid,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
@@ -124,6 +126,8 @@ foreach($results as $result)
 <?php }} ?>
 </select>
 </div>
+
+
 
 
 <div class="form-group">

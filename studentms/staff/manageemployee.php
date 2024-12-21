@@ -92,18 +92,25 @@ header('location:manageemployee.php');
                       <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="font-weight-bold" >Sr no</th>
-                                            <th class="font-weight-bold">Staff Id</th>
-                                            <th class="font-weight-bold">Full Name</th>
-                                            <th class="font-weight-bold">Department</th>
-                                             <th class="font-weight-bold">Status</th>
-                                             <th class="font-weight-bold">Reg Date</th>
-                                            <th class="font-weight-bold">Action</th>
+
+                                        <th class="font-weight-bold">S.No</th>
+                            <th class="font-weight-bold">Staff ID</th>
+                            <th class="font-weight-bold">Staff name</th>
+                            <th class="font-weight-bold">Subject</th>
+                            <th class="font-weight-bold">Staff ClassName</th>
+                            <th class="font-weight-bold">Status</th>
+                            <th class="font-weight-bold">RegDate Date</th>
+                            <th class="font-weight-bold">Action</th>
+                                            
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees";
+                                    
+                                    
+<?php $sql = "SELECT tblemployees.id,tblemployees.EmpId, tblemployees.FirstName,tblemployees.LastName,tblemployees.Subjects,Status, tblemployees.RegDate,tblclass.ClassName,tblclass.Section,tblemployees.id from  tblemployees
+join tblclass on tblclass.id = tblemployees.ClassId";
+
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -116,7 +123,8 @@ foreach($results as $result)
                                             <td> <?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->EmpId);?></td>
                                             <td><?php echo htmlentities($result->FirstName);?>&nbsp;<?php echo htmlentities($result->LastName);?></td>
-                                            <td><?php echo htmlentities($result->Department);?></td>
+                                            <td><?php echo htmlentities($result->Subjects);?></td>
+                                            <td><?php  echo htmlentities($result->ClassName);?> &nbsp;<?php  echo htmlentities($result->Section);?></td>
                                              <td><?php $stats=$result->Status;
 if($stats){
                                              ?>
@@ -128,10 +136,10 @@ if($stats){
 
                                              </td>
                                               <td><?php echo htmlentities($result->RegDate);?></td>
-                                            <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>"><i class="material-icons">mode_edit</i></a>
+                                            <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>"><i class="icon-eye"></i></a>
                                         <?php if($result->Status==1)
  {?>
-<a href="manageemployee.php?inid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to inactive this Employe?');"" > <i class="material-icons" title="Inactive">clear</i>
+||<a href="manageemployee.php?inid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to inactive this Employe?');"" > <i class="icon-trash" ></i>
 <?php } else {?>
 
                                             <a href="manageemployee.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to active this employee?');""><i class="material-icons" title="Active">done</i>
