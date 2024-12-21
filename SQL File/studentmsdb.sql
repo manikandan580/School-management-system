@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 16, 2024 at 09:14 AM
+-- Generation Time: Dec 21, 2024 at 10:21 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -116,10 +116,11 @@ CREATE TABLE IF NOT EXISTS `tblemployees` (
   `FirstName` varchar(150) DEFAULT NULL,
   `LastName` varchar(150) DEFAULT NULL,
   `EmailId` varchar(200) DEFAULT NULL,
+  `ClassId` int DEFAULT NULL,
   `Password` varchar(180) DEFAULT NULL,
   `Gender` varchar(100) DEFAULT NULL,
   `Dob` varchar(100) DEFAULT NULL,
-  `Department` varchar(255) DEFAULT NULL,
+  `Subjects` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
   `City` varchar(200) DEFAULT NULL,
   `Country` varchar(150) DEFAULT NULL,
@@ -127,16 +128,23 @@ CREATE TABLE IF NOT EXISTS `tblemployees` (
   `Status` int DEFAULT NULL,
   `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblemployees`
 --
 
-INSERT INTO `tblemployees` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `Password`, `Gender`, `Dob`, `Department`, `Address`, `City`, `Country`, `Phonenumber`, `Status`, `RegDate`) VALUES
-(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Human Resource', 'A 123 XYZ Apartment ', 'New Delhi', 'India', '12121212', 1, '2023-08-31 21:56:23'),
-(2, '10235612', 'Garima', 'Yadav', 'grama123@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Female', '2 January, 1997', 'Accounts', 'Hno 123 ABC Colony', 'New Delhi', 'India', '7485963210', 1, '2023-08-31 22:02:47'),
-(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Accounts', 'H no 1', 'Ghaziabad ', 'India', '23232323', 1, '2023-09-01 18:38:23');
+INSERT INTO `tblemployees` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `ClassId`, `Password`, `Gender`, `Dob`, `Subjects`, `Address`, `City`, `Country`, `Phonenumber`, `Status`, `RegDate`) VALUES
+(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 1, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Tamil', 'werf', 'sdrt', 'sertv', '12121212', 1, '2023-08-31 21:56:23'),
+(2, '10235612', 'Garima', 'Yadav', 'grama123@gmail.com', 3, 'f925916e2754e5e03f75dd58a5733251', 'Female', '2 January, 1997', 'English', 'ewr', 'wedr', 'wdrx5t', '7485963210', 1, '2023-08-31 22:02:47'),
+(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 3, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Social Science', '3ewrt', 'erdtxr', 'exdtg', '23232323', 1, '2023-09-01 18:38:23'),
+(13, 'tg', 'weartv', 'weartvhjg', 'sdhjdgjk@gmail.com', 4, 'Test123', 'Male', '2024-12-27', 'English', 'sdc', 'secrfesrf', 'secrfrtgf', '1234455677', 1, '2024-12-17 02:44:37'),
+(14, '53456', 'we45gvwrt', 'wvgtyht', 'srfvrt@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b', 'Female', '2024-12-06', 'Maths', 'rtgr4v6y', 'wertv5', 'e46tv5', '123456789', 1, '2024-12-17 02:47:31'),
+(15, '435', '3twfv', 'schhj', 'sdfhgybkulu@gmail.com', 5, '4b0678100e564a9a6a3265852057a14b', 'Female', '2024-11-28', 'Maths', 'edcyf', 'ercydrj', 'ecrfhytj', '1234565667', 1, '2024-12-17 06:31:42'),
+(16, '2343', 'werf', 'dftgr', 'rfgeryhtg@gmail.com', 2, 'e3e84538a1b02b1cc11bf71fe3169958', 'Male', '2024-12-03', 'English', 'ewr5cf4r', 'wxecrt4', 'erct54t', '2345566788', 1, '2024-12-17 07:18:40'),
+(17, 'rtb', 'wecft', 'wetcdw', 'wetf@gmail.com', 8, 'b1ebcda84c347552bd186515da7f1a73', 'Male', '111111-11-11', 'Science', 'estcr', 'erfyt', 'decryfht', '2133544556', 1, '2024-12-17 10:02:57'),
+(18, '34', 'gf ', 'g ', 'mani@gmail.com', 9, '07cd55c7b42715ec44c133a6a165e8d2', 'Male', '1111-11-11', 'Social Science', 'sde', 'ertf', '3ert', '2345677889', 1, '2024-12-20 03:29:16'),
+(19, '123', '123', 'ew254', 'sdfrtg@gmail.com', 9, '8662def5da032d97c509be5207dc3b7f', 'Male', '2024-12-16', 'Maths', 'd5rhy6', '5y', '56fuy', '56fuy7', 1, '2024-12-21 05:46:59');
 
 -- --------------------------------------------------------
 
@@ -159,13 +167,15 @@ CREATE TABLE IF NOT EXISTS `tblleaves` (
   `empid` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `empid` (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblleaves`
 --
 
 INSERT INTO `tblleaves` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`, `PostingDate`, `AdminRemark`, `AdminRemarkDate`, `Status`, `IsRead`, `empid`) VALUES
+(1, 'Casual Leaves', '17/09/2023', '10/09/2023', 'I need leave to visit my home town. ', '2023-08-31 09:36:21', 'Approved', '2023-08-31 20:39:40 ', 1, 1, 1),
+(2, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
 (11, 'Casual Leaves', '17/09/2023', '10/09/2023', 'I need leave to visit my home town. ', '2023-08-31 09:36:21', 'Approved', '2023-08-31 20:39:40 ', 1, 1, 1),
 (12, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
 (13, 'Earned Leaves', '12/11/2011', '11/11/2011', 'sadscx', '2024-12-06 04:26:55', NULL, NULL, 0, 1, 1),
@@ -173,7 +183,58 @@ INSERT INTO `tblleaves` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`,
 (15, 'Casual Leaves', '14/02/2012', '12/02/2012', 'rcrcqe', '2024-12-14 20:13:05', 'no', '2024-12-16 6:22:26 ', 2, 1, 1),
 (16, 'Sick Leaves', '24/04/2014', '23/04/2014', '43rx', '2024-12-14 21:29:44', NULL, NULL, 0, 1, 5),
 (39, 'Earned Leaves', '12/11/2011', '11/11/2011', 'df', '2024-12-16 00:51:32', NULL, NULL, 0, 0, 5),
-(40, 'Sick Leaves', '12/11/2011', '11/11/2011', 'manikansagh', '2024-12-16 02:45:20', NULL, NULL, 0, 1, 2);
+(40, 'Sick Leaves', '12/11/2011', '11/11/2011', 'manikansagh', '2024-12-16 02:45:20', NULL, NULL, 0, 1, 2),
+(41, 'Casual Leaves', '324', '25', 'ewrtvt', '2024-12-18 10:03:24', NULL, NULL, 0, 0, NULL),
+(42, 'Earned Leaves', '11/12/2011', '11/11/2011', 'dwfrf', '2024-12-19 01:41:18', NULL, NULL, 0, 0, NULL),
+(43, 'Sick Leaves', '11/02/2022', '11/11/2011', 'fe h', '2024-12-19 01:43:24', NULL, NULL, 0, 0, 5),
+(44, 'Casual Leaves', '12/11/2011', '11/11/2011', 'xcgcxtrg', '2024-12-19 01:43:33', 'no', '2024-12-19 7:14:12 ', 2, 1, 5),
+(45, 'Earned Leaves', '21', '111', 'efg', '2024-12-19 02:17:00', NULL, NULL, 0, 0, NULL),
+(46, 'Earned Leaves', '13/12/2003', '12/12/2003', 'manikandan', '2024-12-19 02:17:25', NULL, NULL, 0, 0, NULL),
+(47, 'Casual Leaves', '12', '11', 'dfcer', '2024-12-19 02:20:22', NULL, NULL, 0, 0, NULL),
+(48, 'Earned Leaves', '12', '11', 'wxerfg', '2024-12-19 02:36:36', NULL, NULL, 0, 0, NULL),
+(49, 'Earned Leaves', '15/11/2011', '11/11/2011', 'sdcdf mani', '2024-12-19 10:34:40', NULL, NULL, 0, 1, 1),
+(50, 'Sick Leaves', '12', '11', 'ede', '2024-12-20 01:38:48', NULL, NULL, 0, 0, NULL),
+(51, 'Casual Leaves', '34', '23', 'v ', '2024-12-20 01:44:48', NULL, NULL, 0, 0, NULL),
+(52, 'Earned Leaves', '11/11/2011', '11/11/2011', '1edfdf', '2024-12-20 03:30:08', 'gfr', '2024-12-20 9:01:16 ', 2, 1, 18),
+(53, 'Casual Leaves', '12/11/2011', '11/11/2011', 'ghf', '2024-12-21 02:38:28', NULL, NULL, 0, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblleavess`
+--
+
+DROP TABLE IF EXISTS `tblleavess`;
+CREATE TABLE IF NOT EXISTS `tblleavess` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `LeaveType` varchar(110) DEFAULT NULL,
+  `ToDate` varchar(120) DEFAULT NULL,
+  `FromDate` varchar(120) DEFAULT NULL,
+  `Description` mediumtext,
+  `ClassId` int NOT NULL,
+  `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `AdminRemark` mediumtext,
+  `AdminRemarkDate` varchar(120) DEFAULT NULL,
+  `Status` int DEFAULT NULL,
+  `IsRead` int DEFAULT NULL,
+  `stuid` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `stuid` (`stuid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblleavess`
+--
+
+INSERT INTO `tblleavess` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`, `ClassId`, `PostingDate`, `AdminRemark`, `AdminRemarkDate`, `Status`, `IsRead`, `stuid`) VALUES
+(1, 'Casual Leaves', '17/09/2023', '10/09/2023', 'I need leave to visit my home town. ', 0, '2023-08-31 09:36:21', 'Approved', '2023-08-31 20:39:40 ', 1, 1, 1),
+(2, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', 0, '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
+(3, 'Casual Leaves', '54', '23', 'dfgcg', 0, '2024-12-20 05:09:52', NULL, NULL, 0, 0, 1),
+(4, 'Casual Leaves', '213', '111', 'sd', 0, '2024-12-21 02:39:08', NULL, NULL, 0, 1, 1),
+(5, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 02:58:45', 'yes', '2024-12-21 9:03:07 ', 1, 1, 1),
+(6, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 03:18:21', NULL, NULL, 0, 0, 1),
+(7, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 03:18:24', NULL, NULL, 0, 1, 1),
+(8, 'Casual Leaves', '332', '112', 'fgtrg', 0, '2024-12-21 03:19:44', NULL, NULL, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `tblnotice` (
   `NoticeMsg` mediumtext,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblnotice`
@@ -224,7 +285,8 @@ INSERT INTO `tblnotice` (`id`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationD
 (2, 'Marks of Unit Test.', 3, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
 (3, 'Marks of Unit Test.', 2, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
 (4, 'Test', 3, 'This is for testing.', '2022-02-02 18:17:03'),
-(5, 'Test Notice', 8, 'This is for Testing.', '2022-02-02 19:03:43');
+(5, 'Test Notice', 1, 'This is for Testing.', '2022-02-02 19:03:43'),
+(13, '456', 1, 'ewrcrtt', '2024-12-17 02:42:08');
 
 -- --------------------------------------------------------
 
@@ -249,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `tblpage` (
 --
 
 INSERT INTO `tblpage` (`id`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
-(1, 'aboutus', 'About Us', '<div style=\"text-align: start;\"><font color=\"#7b8898\" face=\"Mercury SSm A, Mercury SSm B, Georgia, Times, Times New Roman, Microsoft YaHei New, Microsoft Yahei, ????, ??, SimSun, STXihei, ????, serif\"><span style=\"font-size: 26px;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></font><br></div>', NULL, NULL, NULL),
+(1, 'aboutus', 'About Us', 'A School Management System (SMS) is a comprehensive software solution designed to streamline and automate various administrative tasks within educational institutions. It serves as a central hub for managing student information, academic records, attendance, grades, timetables, and communication between teachers, students, and parents. This system simplifies the workflow by reducing manual tasks such as attendance tracking, report card generation, and scheduling, enabling more efficient and organized management. Additionally, the system often includes features like fee management, library management, and exam scheduling, ensuring that all aspects of school operations are handled seamlessly. By integrating these functions, a School Management System helps improve the overall effectiveness of the educational environment, fostering better communication and improving the learning experience for students and staff alike.', NULL, NULL, NULL),
 (2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'infodata@gmail.com', 7896541236, NULL);
 
 -- --------------------------------------------------------
@@ -291,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `tblresult` (
   `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblresult`
@@ -308,26 +370,23 @@ INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `Po
 (9, 2, 2, 3, 80, '2024-05-09 23:30:57', NULL),
 (10, 2, 2, 4, 54, '2024-05-09 23:30:57', NULL),
 (11, 2, 2, 5, 85, '2024-05-09 23:30:57', NULL),
-(12, 3, 3, 1, 55, '2024-05-09 23:30:57', NULL),
-(13, 3, 3, 2, 65, '2024-05-09 23:30:57', NULL),
-(14, 3, 3, 3, 75, '2024-05-09 23:30:57', NULL),
-(15, 3, 3, 4, 56, '2024-05-09 23:30:57', NULL),
-(16, 3, 3, 5, 52, '2024-05-09 23:30:57', NULL),
-(17, 4, 4, 1, 80, '2024-05-09 23:30:57', NULL),
-(18, 4, 4, 2, 80, '2024-05-20 04:20:18', NULL),
-(19, 4, 4, 3, 70, '2024-05-20 04:20:18', NULL),
-(20, 4, 4, 4, 90, '2024-05-20 04:20:18', NULL),
-(21, 4, 4, 5, 60, '2024-05-20 04:20:18', NULL),
-(22, 5, 5, 1, 67, '2024-12-14 02:41:54', NULL),
-(23, 5, 5, 2, 98, '2024-12-14 02:41:54', NULL),
-(24, 5, 5, 3, 67, '2024-12-14 02:41:54', NULL),
-(25, 5, 5, 4, 78, '2024-12-14 02:41:54', NULL),
-(26, 5, 5, 5, 79, '2024-12-14 02:41:54', NULL),
-(27, 6, 6, 1, 78, '2024-12-14 02:41:54', NULL),
-(28, 6, 6, 2, 89, '2024-12-14 02:41:54', NULL),
-(29, 6, 6, 3, 99, '2024-12-14 02:41:54', NULL),
-(30, 6, 6, 4, 97, '2024-12-14 02:41:54', NULL),
-(31, 6, 6, 5, 87, '2024-12-14 02:41:54', NULL);
+(12, 3, 4, 1, 55, '2024-05-09 23:30:57', NULL),
+(13, 3, 4, 2, 65, '2024-05-09 23:30:57', NULL),
+(14, 3, 4, 3, 75, '2024-05-09 23:30:57', NULL),
+(15, 3, 4, 6, 56, '2024-05-09 23:30:57', NULL),
+(16, 3, 4, 7, 52, '2024-05-09 23:30:57', NULL),
+(17, 3, 4, 8, 80, '2024-05-09 23:30:57', NULL),
+(18, 4, 6, 1, 80, '2024-05-20 04:20:18', NULL),
+(19, 4, 6, 2, 70, '2024-05-20 04:20:18', NULL),
+(20, 4, 6, 3, 90, '2024-05-20 04:20:18', NULL),
+(21, 4, 6, 6, 60, '2024-05-20 04:20:18', NULL),
+(22, 4, 6, 7, 67, '2024-12-14 02:41:54', NULL),
+(23, 4, 6, 10, 98, '2024-12-14 02:41:54', NULL),
+(24, 5, 5, 1, 67, '2024-12-14 02:41:54', NULL),
+(25, 5, 5, 2, 78, '2024-12-14 02:41:54', NULL),
+(26, 5, 5, 3, 79, '2024-12-14 02:41:54', NULL),
+(27, 5, 5, 6, 78, '2024-12-14 02:41:54', NULL),
+(28, 5, 5, 10, 89, '2024-12-14 02:41:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -340,7 +399,6 @@ CREATE TABLE IF NOT EXISTS `tblstudent` (
   `StudentId` int NOT NULL AUTO_INCREMENT,
   `StudentName` varchar(200) DEFAULT NULL,
   `StudentEmail` varchar(200) DEFAULT NULL,
-  `StudentClass` varchar(100) DEFAULT NULL,
   `RollId` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `ClassId` int NOT NULL,
   `Gender` varchar(50) DEFAULT NULL,
@@ -364,15 +422,15 @@ CREATE TABLE IF NOT EXISTS `tblstudent` (
 -- Dumping data for table `tblstudent`
 --
 
-INSERT INTO `tblstudent` (`StudentId`, `StudentName`, `StudentEmail`, `StudentClass`, `RollId`, `ClassId`, `Gender`, `DOB`, `StuID`, `FatherName`, `MotherName`, `ContactNumber`, `AltenateNumber`, `Address`, `UserName`, `Password`, `Image`, `RegDate`, `DateofAdmission`, `Status`) VALUES
-(1, 'Sarita', 'sarita@gmail.com', '1', '46456', 1, 'Female', '2022-01-13', '1\r\n', 'bbmnb', 'mnbmb', 5465454645, 4646546565, 'J-908, Hariram Nagra New Delhi', 'sarita', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2022-01-13 14:09:04', 1),
-(2, 'Anuj kumar', 'anujkumar@gmail.com', '4', '10861', 4, 'Male', '2019-01-05', '2', 'Janak Sharma', 'Indra Devi', 7879879879, 7987979879, 'kjhkhjkhdkshfiludzshfiu\r\nfjedh\r\nk;jk', 'anujkumar', 'f925916e2754e5e03f75dd58a5733251', '5bede9f47102611b4df6241c718af7fc1642314213.jpg', '2024-09-17 13:22:18', '2022-01-16 06:23:33', 0),
-(3, 'Amit kumar', 'amit kumar@gmali.com', '2', '2626', 6, 'Male', '1986-01-05', '3', 'Kailesg', 'jakinnm', 4646546546, 6546598798, 'jlkjkljoiujiouoil', 'amitkumar', 'f925916e2754e5e03f75dd58a5733251', '4f0691cfe48c8f74fe413c7b92391ff41642605892.jpg', '2024-09-17 13:22:18', '2022-01-19 15:24:52', 0),
-(4, 'Rahul kumar', 'rahulkumar@gmail.com', '7', '990', 7, 'Female', '2002-02-10', '4', 'Anuj Kumar', 'Garima Singh', 1234698741, 1234567890, 'New Delhi', 'rahul kumar', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191643825985.png', '2024-09-17 13:22:18', '2022-02-02 18:19:45', 1),
-(5, 'Sanjeev singh', 'sanjeevsingh@gmail.com', '8', '122', 8, 'Male', '2001-05-30', '5', 'Bijendra Singh', 'Kamlesh Devi', 1472589630, 1236987450, 'New Delhi', 'sanjeev singh', 'f925916e2754e5e03f75dd58a5733251', '2f413c4becfa2db4bc4fc2ccead84f651643828242.png', '2024-09-17 13:22:18', '2022-02-02 18:57:22', 1),
-(6, 'Shiv Gupta', 'Shiv@gmail.com', '9', '12345', 9, 'Male', '2018-09-07', '6', 'ram', 'seetha', 1234567890, 4646546565, 'J-909, Hariram Nagra New Delhi', 'shiv', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2024-09-17 06:01:03', 1),
-(7, 'gkbi', 'efs', NULL, '1243', 1, 'Male', '0000-00-00', '344', 'werf', 'edr', 234358989, 654658789, 'rtdbs', 'fgh', 'a363e54c35340a7e8715c7957313c6b8', 'd68b92b252063dbb703519c3a60aecf31734163207.png', '2024-12-14 08:00:07', '2024-12-14 08:00:07', NULL),
-(8, 'qwex', 'cxr', NULL, 'exar', 4, 'Male', '4234-03-21', '1432', 'w2fr', 'wd4r', 134322467, 46547546, 'bfderssereb', 'fdtgse', '9edbcd0783b24d58387f0db59bf1f0d3', 'f5c4c353f65bdf3900c6cafcfefe3f8f1734164291.png', '2024-12-14 08:18:11', '2024-12-14 08:18:11', NULL);
+INSERT INTO `tblstudent` (`StudentId`, `StudentName`, `StudentEmail`, `RollId`, `ClassId`, `Gender`, `DOB`, `StuID`, `FatherName`, `MotherName`, `ContactNumber`, `AltenateNumber`, `Address`, `UserName`, `Password`, `Image`, `RegDate`, `DateofAdmission`, `Status`) VALUES
+(1, 'Sarita', 'sarita@gmail.com', '46456', 1, 'Female', '2022-01-13', '1\r\n', 'bbmnb', 'mnbmb', 5465454645, 4646546565, 'J-908, Hariram Nagra New Delhi', 'sarita', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2022-01-13 14:09:04', 1),
+(2, 'Anuj kumar', 'anujkumar@gmail.com', '10861', 2, 'Male', '2019-01-05', '2', 'Janak Sharma', 'Indra Devi', 7879879879, 7987979879, 'kjhkhjkhdkshfiludzshfiu\r\nfjedh\r\nk;jk', 'anujkumar', 'f925916e2754e5e03f75dd58a5733251', '5bede9f47102611b4df6241c718af7fc1642314213.jpg', '2024-09-17 13:22:18', '2022-01-16 06:23:33', 0),
+(3, 'Amit kumar', 'amit kumar@gmali.com', '2626', 4, 'Male', '1986-01-05', '3', 'Kailesg', 'jakinnm', 4646546546, 6546598798, 'jlkjkljoiujiouoil', 'amitkumar', 'f925916e2754e5e03f75dd58a5733251', '4f0691cfe48c8f74fe413c7b92391ff41642605892.jpg', '2024-09-17 13:22:18', '2022-01-19 15:24:52', 0),
+(4, 'Rahul kumar', 'rahulkumar@gmail.com', '990', 6, 'Female', '2002-02-10', '4', 'Anuj Kumar', 'Garima Singh', 1234698741, 1234567890, 'New Delhi', 'rahul kumar', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191643825985.png', '2024-09-17 13:22:18', '2022-02-02 18:19:45', 1),
+(5, 'Sanjeev singh', 'sanjeevsingh@gmail.com', '122', 4, 'Male', '2001-05-30', '5', 'Bijendra Singh', 'Kamlesh Devi', 1472589630, 1236987450, 'New Delhi', 'sanjeev singh', 'f925916e2754e5e03f75dd58a5733251', '2f413c4becfa2db4bc4fc2ccead84f651643828242.png', '2024-09-17 13:22:18', '2022-02-02 18:57:22', 1),
+(6, 'Shiv Gupta', 'Shiv@gmail.com', '12345', 2, 'Male', '2018-09-07', '6', 'ram', 'seetha', 1234567890, 4646546565, 'J-909, Hariram Nagra New Delhi', 'shiv', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2024-09-17 06:01:03', 1),
+(7, 'gkbi', 'efs', '1243', 1, 'Male', '0000-00-00', '344', 'werf', 'edr', 234358989, 654658789, 'rtdbs', 'fgh', 'a363e54c35340a7e8715c7957313c6b8', 'd68b92b252063dbb703519c3a60aecf31734163207.png', '2024-12-14 08:00:07', '2024-12-14 08:00:07', NULL),
+(8, 'qwex', 'cxr', 'exar', 4, 'Male', '4234-03-21', '1432', 'w2fr', 'wd4r', 134322467, 46547546, 'bfderssereb', 'fdtgse', '9edbcd0783b24d58387f0db59bf1f0d3', 'f5c4c353f65bdf3900c6cafcfefe3f8f1734164291.png', '2024-12-14 08:18:11', '2024-12-14 08:18:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,39 +447,47 @@ CREATE TABLE IF NOT EXISTS `tblsubjectcombination` (
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `Updationdate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblsubjectcombination`
 --
 
 INSERT INTO `tblsubjectcombination` (`id`, `ClassId`, `SubjectId`, `status`, `CreationDate`, `Updationdate`) VALUES
-(3, 2, 5, 0, '2024-05-01 17:30:57', '2024-06-07 12:25:49'),
-(4, 1, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(5, 1, 4, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(6, 1, 5, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(8, 4, 4, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(10, 4, 1, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(12, 4, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(13, 4, 5, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(14, 6, 1, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(15, 6, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(16, 6, 4, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(17, 6, 6, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(18, 7, 1, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(19, 7, 7, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(20, 7, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(21, 7, 6, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(22, 7, 5, 0, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(23, 8, 1, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(24, 8, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(25, 8, 4, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(26, 8, 6, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(27, 8, 5, 0, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(28, 9, 1, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(29, 9, 2, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(30, 9, 8, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00'),
-(31, 9, 8, 1, '2024-05-01 17:30:57', '2024-06-07 11:28:00');
+(3, 1, 1, 1, '2024-05-01 05:00:57', '2024-12-21 09:45:50'),
+(4, 1, 2, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(5, 1, 3, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(6, 1, 4, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(8, 1, 5, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(10, 2, 1, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(12, 2, 2, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(13, 2, 3, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(14, 2, 4, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(15, 2, 5, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(16, 3, 1, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(17, 3, 2, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(18, 3, 3, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(19, 3, 4, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(20, 3, 5, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(21, 4, 1, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(22, 4, 2, 1, '2024-05-01 05:00:57', '2024-12-21 09:46:05'),
+(23, 4, 3, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(24, 4, 6, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(25, 4, 7, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(26, 4, 8, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(27, 4, 9, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(28, 6, 1, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(29, 6, 2, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(30, 6, 10, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(31, 6, 6, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(32, 6, 7, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(33, 6, 3, 1, '2024-05-01 05:00:57', '2024-06-06 22:58:00'),
+(34, 5, 1, 1, '2024-12-21 09:38:29', NULL),
+(35, 5, 2, 1, '2024-12-21 09:38:36', NULL),
+(36, 5, 3, 1, '2024-12-21 09:38:46', NULL),
+(37, 5, 10, 1, '2024-12-21 09:38:53', NULL),
+(38, 5, 7, 1, '2024-12-21 09:39:02', NULL),
+(39, 5, 6, 1, '2024-12-21 09:39:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -437,18 +503,22 @@ CREATE TABLE IF NOT EXISTS `tblsubjects` (
   `Creationdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblsubjects`
 --
 
 INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
-(1, 'Tamil', 'TA12', '2024-04-25 17:30:57', NULL),
+(1, 'Tamil', 'TA13', '2024-04-25 17:30:57', NULL),
 (2, 'English', 'ENG12', '2024-04-25 17:30:57', NULL),
 (3, 'Maths', 'MA12', '2024-04-25 17:30:57', NULL),
 (4, 'Science', 'SC12', '2024-04-25 17:30:57', NULL),
-(5, 'Social Science', 'SS12', '2024-04-25 17:30:57', NULL);
+(5, 'Social Science', 'SS12', '2024-04-25 17:30:57', NULL),
+(6, 'Physics', 'PH32', '2024-12-21 09:25:54', NULL),
+(7, 'Chemistry', 'CH13', '2024-12-21 09:27:08', NULL),
+(8, 'Computer science', 'CS12', '2024-12-21 09:27:42', NULL),
+(10, 'Acconuts', 'AC12', '2024-12-21 09:36:07', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
