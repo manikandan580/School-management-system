@@ -19,7 +19,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $altconnum=$_POST['altconnum'];
  $address=$_POST['address'];
  $eid=$_GET['editid'];
-$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,ClassId=:classid,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where ID=:eid";
+$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,ClassId=:classid,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where StudentId=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':stuname',$stuname,PDO::PARAM_STR);
 $query->bindParam(':stuemail',$stuemail,PDO::PARAM_STR);
@@ -109,7 +109,7 @@ foreach($results as $row)
                       <div class="form-group">
                         <label for="exampleInputEmail3">Student Class</label>
                         <select  name="classid" class="form-control" required='true'>
-                          <option value="<?php  echo htmlentities($row->Classid);?>"><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></option>
+                          <option value="<?php  echo htmlentities($row->ClassId);?>"><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></option>
                          <?php 
 
 $sql2 = "SELECT * from    tblclass ";

@@ -75,11 +75,11 @@ $msg="Leave type updated Successfully";
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Update Subjects </h3>
+              <h3 class="page-title"> Update LeaveTypes </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Update Subject</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Update LeaveTypes</li>
                 </ol>
               </nav>
             </div>
@@ -88,7 +88,7 @@ $msg="Leave type updated Successfully";
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Update Subject</h4>
+                    <h4 class="card-title" style="text-align: center;">Update LeaveTypes</h4>
                    
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
     

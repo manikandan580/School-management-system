@@ -7,7 +7,7 @@ if(strlen($_SESSION['sturecmsaid'])==0)
 header('location:index.php');
 }
 else{
-$eid=intval($_GET['empid']);
+$emplogin=intval($_GET['empid']);
 if(isset($_POST['update']))
 {
 
@@ -20,7 +20,7 @@ $address=$_POST['address'];
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Subjects=:subjects,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:eid";
+$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Subjects=:subjects,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:emplogin";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
@@ -31,7 +31,7 @@ $query->bindParam(':address',$address,PDO::PARAM_STR);
 $query->bindParam(':city',$city,PDO::PARAM_STR);
 $query->bindParam(':country',$country,PDO::PARAM_STR);
 $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
+$query->bindParam(':emplogin',$emplogin,PDO::PARAM_STR);
 $query->execute();
 $msg="Employee record updated Successfully";
 }
@@ -93,11 +93,11 @@ $msg="Employee record updated Successfully";
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Update Students </h3>
+              <h3 class="page-title"> Update Staff </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Update Students</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Update Staff</li>
                 </ol>
               </nav>
             </div>
@@ -106,7 +106,7 @@ $msg="Employee record updated Successfully";
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Update Students</h4>
+                    <h4 class="card-title" style="text-align: center;">Update Staff</h4>
                    
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                                            <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
@@ -114,10 +114,10 @@ $msg="Employee record updated Successfully";
                                         <section>
                                             
 <?php 
-$eid=intval($_GET['empid']);
-$sql = "SELECT * from  tblemployees where id=:eid";
+$emplogin=intval($_GET['empid']);
+$sql = "SELECT * from  tblemployees where id=:emplogin";
 $query = $dbh -> prepare($sql);
-$query -> bindParam(':eid',$eid, PDO::PARAM_STR);
+$query -> bindParam(':emplogin',$emplogin, PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -168,10 +168,25 @@ foreach($results as $result)
 <input id="birthdate" class="form-control" name="dob"  class="datepicker" value="<?php echo htmlentities($result->Dob);?>" >
 </div>
 
+<div class="form-group">
+<label for="address">Address</label>
+<input id="address" name="address"class="form-control" type="text"  value="<?php echo htmlentities($result->Address);?>" autocomplete="off" required>
+</div>
+
+<div class="form-group">
+<label for="city">City/Town</label>
+<input id="city" name="city" class="form-control" type="text"  value="<?php echo htmlentities($result->City);?>" autocomplete="off" required>
+ </div>
+   
+<div class="form-group">
+<label for="country">Country</label>
+<input id="country" name="country" class="form-control" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
+</div>
+
                                                     
 
 <div class="form-group">
-                      <label for="subjects"> Subject</label>
+                    
 <select  name="subjects" class="form-control" autocomplete="off">
 <option value="">Subject...</option>
 <?php $sql = "SELECT SubjectName from tblsubjects";
@@ -188,20 +203,7 @@ foreach($results as $result)
 </select>
 </div>
 
-<div class="form-group">
-<label for="address">Address</label>
-<input id="address" name="address"class="form-control" type="text"  value="<?php echo htmlentities($result->Address);?>" autocomplete="off" required>
-</div>
 
-<div class="form-group">
-<label for="city">City/Town</label>
-<input id="city" name="city" class="form-control" type="text"  value="<?php echo htmlentities($result->City);?>" autocomplete="off" required>
- </div>
-   
-<div class="form-group">
-<label for="country">Country</label>
-<input id="country" name="country" class="form-control" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
-</div>
 
                                                             
 

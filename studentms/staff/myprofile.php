@@ -7,7 +7,7 @@ if(strlen($_SESSION['emplogin'])==0)
 header('location:index.php');
 }
 else{
-$eid=$_SESSION['emplogin'];
+$emplogin=$_SESSION['emplogin'];
 if(isset($_POST['update']))
 {
 
@@ -20,7 +20,7 @@ $address=$_POST['address'];
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmailId=:eid";
+$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmailId=:emplogin";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
@@ -31,7 +31,7 @@ $query->bindParam(':address',$address,PDO::PARAM_STR);
 $query->bindParam(':city',$city,PDO::PARAM_STR);
 $query->bindParam(':country',$country,PDO::PARAM_STR);
 $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
+$query->bindParam(':emlogin',$emplogin,PDO::PARAM_STR);
 $query->execute();
 $msg="Employee record updated Successfully";
 }
@@ -107,10 +107,10 @@ $msg="Employee record updated Successfully";
                 <div class="card">
                   <div class="card-body">
 <?php 
-$eid=$_SESSION['emplogin'];
-$sql = "SELECT * from  tblemployees where EmailId=:eid";
+$emplogin=$_SESSION['emplogin'];
+$sql = "SELECT * from  tblemployees where EmailId=:emplogin";
 $query = $dbh -> prepare($sql);
-$query -> bindParam(':eid',$eid, PDO::PARAM_STR);
+$query -> bindParam(':emplogin',$emplogin, PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -124,21 +124,7 @@ foreach($results as $result)
 <td colspan="4" style="font-size:20px;color:blue">
  Staff Details</td></tr>
 
-    <tr class="table-info">
-    <th>Employee Code</th>
-    <td><?php  echo $result->EmpId;?></td>
-     <th>Staff Email</th>
-    <td><?php  echo $result->EmailId;?></td>
-  </tr>
-
-
-
-  <tr class="table-warning">
-    <th>First Name</th>
-    <td><?php  echo $result->FirstName;?></td>
-     <th>last Name </th>
-    <td><?php  echo $result->LastName;?></td>
-  </tr>
+   
  
 
 

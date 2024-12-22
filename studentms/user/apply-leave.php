@@ -49,8 +49,8 @@ $error="Something went wrong. Please try again";
 <html lang="en">
     <head>
         
-        <!-- Title -->
-        <title>Employe | Apply Leave</title>
+         <!-- Title -->
+         <title>Student | Apply Leave</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

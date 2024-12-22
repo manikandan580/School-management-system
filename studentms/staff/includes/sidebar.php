@@ -107,13 +107,13 @@ foreach($results as $row)
             
 
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic6">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic6">
                 <span class="menu-title">Leave
 
                 </span>
                 <i class="icon-people menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic6">
+              <div class="collapse" id="ui-basic5">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="apply-leave.php">Leave Form</a></li>
                  
@@ -124,7 +124,7 @@ foreach($results as $row)
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic6">
-                <span class="menu-title">Leave ManagE
+                <span class="menu-title"> Student Leave Manage
 
                 </span>
                 <i class="icon-people menu-icon"></i>
@@ -132,7 +132,9 @@ foreach($results as $row)
               <div class="collapse" id="ui-basic6">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="leavess.php">All leave Student </a></li>
-                  
+                  <li class="nav-item"> <a class="nav-link" href="approvedleave-history.php">Approved leave Student </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="notapproved-leaves.php">Not Approved leave Student </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pending-leavehistory.php">Pending leave History Student </a></li>
                   
                 </ul>
               </div>
