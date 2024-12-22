@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 21, 2024 at 10:21 AM
+-- Generation Time: Dec 22, 2024 at 04:02 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -128,23 +128,16 @@ CREATE TABLE IF NOT EXISTS `tblemployees` (
   `Status` int DEFAULT NULL,
   `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblemployees`
 --
 
 INSERT INTO `tblemployees` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `ClassId`, `Password`, `Gender`, `Dob`, `Subjects`, `Address`, `City`, `Country`, `Phonenumber`, `Status`, `RegDate`) VALUES
-(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 1, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Tamil', 'werf', 'sdrt', 'sertv', '12121212', 1, '2023-08-31 21:56:23'),
+(1, '10805121', 'Rahul', 'Kumar', 'rk1995@test.com', 1, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 August, 1995', 'Science', 'ewfr', 'refcy6', 'rdfcuj', '12121212', 1, '2023-08-31 21:56:23'),
 (2, '10235612', 'Garima', 'Yadav', 'grama123@gmail.com', 3, 'f925916e2754e5e03f75dd58a5733251', 'Female', '2 January, 1997', 'English', 'ewr', 'wedr', 'wdrx5t', '7485963210', 1, '2023-08-31 22:02:47'),
-(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 3, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Social Science', '3ewrt', 'erdtxr', 'exdtg', '23232323', 1, '2023-09-01 18:38:23'),
-(13, 'tg', 'weartv', 'weartvhjg', 'sdhjdgjk@gmail.com', 4, 'Test123', 'Male', '2024-12-27', 'English', 'sdc', 'secrfesrf', 'secrfrtgf', '1234455677', 1, '2024-12-17 02:44:37'),
-(14, '53456', 'we45gvwrt', 'wvgtyht', 'srfvrt@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b', 'Female', '2024-12-06', 'Maths', 'rtgr4v6y', 'wertv5', 'e46tv5', '123456789', 1, '2024-12-17 02:47:31'),
-(15, '435', '3twfv', 'schhj', 'sdfhgybkulu@gmail.com', 5, '4b0678100e564a9a6a3265852057a14b', 'Female', '2024-11-28', 'Maths', 'edcyf', 'ercydrj', 'ecrfhytj', '1234565667', 1, '2024-12-17 06:31:42'),
-(16, '2343', 'werf', 'dftgr', 'rfgeryhtg@gmail.com', 2, 'e3e84538a1b02b1cc11bf71fe3169958', 'Male', '2024-12-03', 'English', 'ewr5cf4r', 'wxecrt4', 'erct54t', '2345566788', 1, '2024-12-17 07:18:40'),
-(17, 'rtb', 'wecft', 'wetcdw', 'wetf@gmail.com', 8, 'b1ebcda84c347552bd186515da7f1a73', 'Male', '111111-11-11', 'Science', 'estcr', 'erfyt', 'decryfht', '2133544556', 1, '2024-12-17 10:02:57'),
-(18, '34', 'gf ', 'g ', 'mani@gmail.com', 9, '07cd55c7b42715ec44c133a6a165e8d2', 'Male', '1111-11-11', 'Social Science', 'sde', 'ertf', '3ert', '2345677889', 1, '2024-12-20 03:29:16'),
-(19, '123', '123', 'ew254', 'sdfrtg@gmail.com', 9, '8662def5da032d97c509be5207dc3b7f', 'Male', '2024-12-16', 'Maths', 'd5rhy6', '5y', '56fuy', '56fuy7', 1, '2024-12-21 05:46:59');
+(5, '7856214', 'John', 'Doe', 'jhn12@gmail.com', 3, 'f925916e2754e5e03f75dd58a5733251', 'Male', '3 January, 1995', 'Social Science', '3ewrt', 'erdtxr', 'exdtg', '23232323', 1, '2023-09-01 18:38:23');
 
 -- --------------------------------------------------------
 
@@ -178,25 +171,11 @@ INSERT INTO `tblleaves` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`,
 (2, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
 (11, 'Casual Leaves', '17/09/2023', '10/09/2023', 'I need leave to visit my home town. ', '2023-08-31 09:36:21', 'Approved', '2023-08-31 20:39:40 ', 1, 1, 1),
 (12, 'Casual Leaves', '15/09/2023', '09/09/2023', 'Need casual leaves for some personal work.', '2023-09-01 06:12:40', 'Leave approved', '2023-09-01 17:13:20 ', 1, 1, 5),
-(13, 'Earned Leaves', '12/11/2011', '11/11/2011', 'sadscx', '2024-12-06 04:26:55', NULL, NULL, 0, 1, 1),
 (14, 'Sick Leaves', '26/02/2022', '22/02/2022', 'werdtcyfjhrf', '2024-12-14 20:04:29', NULL, NULL, 0, 1, 1),
-(15, 'Casual Leaves', '14/02/2012', '12/02/2012', 'rcrcqe', '2024-12-14 20:13:05', 'no', '2024-12-16 6:22:26 ', 2, 1, 1),
 (16, 'Sick Leaves', '24/04/2014', '23/04/2014', '43rx', '2024-12-14 21:29:44', NULL, NULL, 0, 1, 5),
 (39, 'Earned Leaves', '12/11/2011', '11/11/2011', 'df', '2024-12-16 00:51:32', NULL, NULL, 0, 0, 5),
 (40, 'Sick Leaves', '12/11/2011', '11/11/2011', 'manikansagh', '2024-12-16 02:45:20', NULL, NULL, 0, 1, 2),
-(41, 'Casual Leaves', '324', '25', 'ewrtvt', '2024-12-18 10:03:24', NULL, NULL, 0, 0, NULL),
-(42, 'Earned Leaves', '11/12/2011', '11/11/2011', 'dwfrf', '2024-12-19 01:41:18', NULL, NULL, 0, 0, NULL),
-(43, 'Sick Leaves', '11/02/2022', '11/11/2011', 'fe h', '2024-12-19 01:43:24', NULL, NULL, 0, 0, 5),
-(44, 'Casual Leaves', '12/11/2011', '11/11/2011', 'xcgcxtrg', '2024-12-19 01:43:33', 'no', '2024-12-19 7:14:12 ', 2, 1, 5),
-(45, 'Earned Leaves', '21', '111', 'efg', '2024-12-19 02:17:00', NULL, NULL, 0, 0, NULL),
-(46, 'Earned Leaves', '13/12/2003', '12/12/2003', 'manikandan', '2024-12-19 02:17:25', NULL, NULL, 0, 0, NULL),
-(47, 'Casual Leaves', '12', '11', 'dfcer', '2024-12-19 02:20:22', NULL, NULL, 0, 0, NULL),
-(48, 'Earned Leaves', '12', '11', 'wxerfg', '2024-12-19 02:36:36', NULL, NULL, 0, 0, NULL),
-(49, 'Earned Leaves', '15/11/2011', '11/11/2011', 'sdcdf mani', '2024-12-19 10:34:40', NULL, NULL, 0, 1, 1),
-(50, 'Sick Leaves', '12', '11', 'ede', '2024-12-20 01:38:48', NULL, NULL, 0, 0, NULL),
-(51, 'Casual Leaves', '34', '23', 'v ', '2024-12-20 01:44:48', NULL, NULL, 0, 0, NULL),
-(52, 'Earned Leaves', '11/11/2011', '11/11/2011', '1edfdf', '2024-12-20 03:30:08', 'gfr', '2024-12-20 9:01:16 ', 2, 1, 18),
-(53, 'Casual Leaves', '12/11/2011', '11/11/2011', 'ghf', '2024-12-21 02:38:28', NULL, NULL, 0, 1, 1);
+(43, 'Sick Leaves', '11/02/2022', '11/11/2011', 'fe h', '2024-12-19 01:43:24', 'yes', '2024-12-22 8:52:35 ', 2, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -233,7 +212,7 @@ INSERT INTO `tblleavess` (`id`, `LeaveType`, `ToDate`, `FromDate`, `Description`
 (4, 'Casual Leaves', '213', '111', 'sd', 0, '2024-12-21 02:39:08', NULL, NULL, 0, 1, 1),
 (5, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 02:58:45', 'yes', '2024-12-21 9:03:07 ', 1, 1, 1),
 (6, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 03:18:21', NULL, NULL, 0, 0, 1),
-(7, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 03:18:24', NULL, NULL, 0, 1, 1),
+(7, 'Casual Leaves', '332', '112', 'fgtrg', 1, '2024-12-21 03:18:24', 'ewf', '2024-12-22 8:28:09 ', 2, 1, 1),
 (8, 'Casual Leaves', '332', '112', 'fgtrg', 0, '2024-12-21 03:19:44', NULL, NULL, 0, 1, 1);
 
 -- --------------------------------------------------------
@@ -284,9 +263,8 @@ CREATE TABLE IF NOT EXISTS `tblnotice` (
 INSERT INTO `tblnotice` (`id`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationDate`) VALUES
 (2, 'Marks of Unit Test.', 3, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
 (3, 'Marks of Unit Test.', 2, 'Meet your class teacher for seeing copies of unit test', '2022-01-19 06:35:58'),
-(4, 'Test', 3, 'This is for testing.', '2022-02-02 18:17:03'),
-(5, 'Test Notice', 1, 'This is for Testing.', '2022-02-02 19:03:43'),
-(13, '456', 1, 'ewrcrtt', '2024-12-17 02:42:08');
+(4, 'Test', 2, 'This is for testing.', '2022-02-02 18:17:03'),
+(5, 'Test Notice', 1, 'This is for Testing.', '2022-02-02 19:03:43');
 
 -- --------------------------------------------------------
 
@@ -312,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `tblpage` (
 
 INSERT INTO `tblpage` (`id`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`) VALUES
 (1, 'aboutus', 'About Us', 'A School Management System (SMS) is a comprehensive software solution designed to streamline and automate various administrative tasks within educational institutions. It serves as a central hub for managing student information, academic records, attendance, grades, timetables, and communication between teachers, students, and parents. This system simplifies the workflow by reducing manual tasks such as attendance tracking, report card generation, and scheduling, enabling more efficient and organized management. Additionally, the system often includes features like fee management, library management, and exam scheduling, ensuring that all aspects of school operations are handled seamlessly. By integrating these functions, a School Management System helps improve the overall effectiveness of the educational environment, fostering better communication and improving the learning experience for students and staff alike.', NULL, NULL, NULL),
-(2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'infodata@gmail.com', 7896541236, NULL);
+(2, 'contactus', 'Contact Us', 'A School Management System (SMS) is a software application designed to streamline and automate various administrative and academic tasks within a school or educational institution. It provides an efficient way for school staff, teachers, students, and parents to manage and access important information such as student records, attendance, grades, timetables, and communication.&nbsp;', 'schoolmanagement@gmail.com', 1234567890, NULL);
 
 -- --------------------------------------------------------
 
@@ -423,14 +401,12 @@ CREATE TABLE IF NOT EXISTS `tblstudent` (
 --
 
 INSERT INTO `tblstudent` (`StudentId`, `StudentName`, `StudentEmail`, `RollId`, `ClassId`, `Gender`, `DOB`, `StuID`, `FatherName`, `MotherName`, `ContactNumber`, `AltenateNumber`, `Address`, `UserName`, `Password`, `Image`, `RegDate`, `DateofAdmission`, `Status`) VALUES
-(1, 'Sarita', 'sarita@gmail.com', '46456', 1, 'Female', '2022-01-13', '1\r\n', 'bbmnb', 'mnbmb', 5465454645, 4646546565, 'J-908, Hariram Nagra New Delhi', 'sarita', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2022-01-13 14:09:04', 1),
+(1, 'sarita', 'sarita@gmail.com', '46456', 1, 'female', '2004-12-08', '1', 'dexfgt', 'cgthd', 4567889002, 234345546, 'dfgcg,\r\nredtt5g,ghjke', 'sarita', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2022-01-13 14:09:04', 1),
 (2, 'Anuj kumar', 'anujkumar@gmail.com', '10861', 2, 'Male', '2019-01-05', '2', 'Janak Sharma', 'Indra Devi', 7879879879, 7987979879, 'kjhkhjkhdkshfiludzshfiu\r\nfjedh\r\nk;jk', 'anujkumar', 'f925916e2754e5e03f75dd58a5733251', '5bede9f47102611b4df6241c718af7fc1642314213.jpg', '2024-09-17 13:22:18', '2022-01-16 06:23:33', 0),
 (3, 'Amit kumar', 'amit kumar@gmali.com', '2626', 4, 'Male', '1986-01-05', '3', 'Kailesg', 'jakinnm', 4646546546, 6546598798, 'jlkjkljoiujiouoil', 'amitkumar', 'f925916e2754e5e03f75dd58a5733251', '4f0691cfe48c8f74fe413c7b92391ff41642605892.jpg', '2024-09-17 13:22:18', '2022-01-19 15:24:52', 0),
 (4, 'Rahul kumar', 'rahulkumar@gmail.com', '990', 6, 'Female', '2002-02-10', '4', 'Anuj Kumar', 'Garima Singh', 1234698741, 1234567890, 'New Delhi', 'rahul kumar', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191643825985.png', '2024-09-17 13:22:18', '2022-02-02 18:19:45', 1),
 (5, 'Sanjeev singh', 'sanjeevsingh@gmail.com', '122', 4, 'Male', '2001-05-30', '5', 'Bijendra Singh', 'Kamlesh Devi', 1472589630, 1236987450, 'New Delhi', 'sanjeev singh', 'f925916e2754e5e03f75dd58a5733251', '2f413c4becfa2db4bc4fc2ccead84f651643828242.png', '2024-09-17 13:22:18', '2022-02-02 18:57:22', 1),
-(6, 'Shiv Gupta', 'Shiv@gmail.com', '12345', 2, 'Male', '2018-09-07', '6', 'ram', 'seetha', 1234567890, 4646546565, 'J-909, Hariram Nagra New Delhi', 'shiv', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2024-09-17 06:01:03', 1),
-(7, 'gkbi', 'efs', '1243', 1, 'Male', '0000-00-00', '344', 'werf', 'edr', 234358989, 654658789, 'rtdbs', 'fgh', 'a363e54c35340a7e8715c7957313c6b8', 'd68b92b252063dbb703519c3a60aecf31734163207.png', '2024-12-14 08:00:07', '2024-12-14 08:00:07', NULL),
-(8, 'qwex', 'cxr', 'exar', 4, 'Male', '4234-03-21', '1432', 'w2fr', 'wd4r', 134322467, 46547546, 'bfderssereb', 'fdtgse', '9edbcd0783b24d58387f0db59bf1f0d3', 'f5c4c353f65bdf3900c6cafcfefe3f8f1734164291.png', '2024-12-14 08:18:11', '2024-12-14 08:18:11', NULL);
+(6, 'Shiv Gupta', 'Shiv@gmail.com', '12345', 2, 'Male', '2018-09-07', '6', 'ram', 'seetha', 1234567890, 4646546565, 'J-909, Hariram Nagra New Delhi', 'shiv', 'f925916e2754e5e03f75dd58a5733251', 'ebcd036a0db50db993ae98ce380f64191642082944.png', '2024-09-17 13:22:18', '2024-09-17 06:01:03', 1);
 
 -- --------------------------------------------------------
 
