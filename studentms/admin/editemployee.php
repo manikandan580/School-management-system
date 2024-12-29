@@ -15,17 +15,19 @@ $fname=$_POST['firstName'];
 $lname=$_POST['lastName'];   
 $gender=$_POST['gender']; 
 $dob=$_POST['dob']; 
+$classid=$_POST['class'];
 $subjects=$_POST['subjects']; 
 $address=$_POST['address']; 
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Subjects=:subjects,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:emplogin";
+$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,ClassId=:classid,Subjects=:subjects,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:emplogin";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
 $query->bindParam(':subjects',$subjects,PDO::PARAM_STR);
 $query->bindParam(':address',$address,PDO::PARAM_STR);
 $query->bindParam(':city',$city,PDO::PARAM_STR);
@@ -149,6 +151,9 @@ foreach($results as $result)
 </div>
 
 <div class="form-group">
+                                                        
+
+<div class="form-group">
 <label for="phone">Mobile number</label>
 <input id="phone" name="mobileno" class="form-control" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
  </div>
@@ -187,7 +192,7 @@ foreach($results as $result)
 
 <div class="form-group">
                     
-<select  name="subjects" class="form-control" autocomplete="off">
+<select  name="subjects" class="form-control" autocomplete="off" required>
 <option value="">Subject...</option>
 <?php $sql = "SELECT SubjectName from tblsubjects";
 $query = $dbh -> prepare($sql);
@@ -202,6 +207,24 @@ foreach($results as $result)
 <?php }} ?>
 </select>
 </div>
+
+<label for="default" >Class</label>
+                                                        
+ <select name="class" class="form-control" id="default" required="required">
+<option value="">Select Class</option>
+<?php $sql = "SELECT * from tblclass";
+$query = $dbh->prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{   ?>
+<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName); ?>&nbsp; Section-<?php echo htmlentities($result->Section); ?></option>
+<?php }} ?>
+ </select>
+                                                        </div>
+                                                    </div>
 
 
 

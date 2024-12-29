@@ -10,6 +10,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $stuname=$_POST['stuname'];
  $stuemail=$_POST['stuemail'];
  $classid=$_POST['classid'];
+ $roolid=$_POST['rollid'];
  $gender=$_POST['gender'];
  $dob=$_POST['dob'];
  $stuid=$_POST['stuid'];
@@ -19,11 +20,12 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
  $altconnum=$_POST['altconnum'];
  $address=$_POST['address'];
  $eid=$_GET['editid'];
-$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,ClassId=:classid,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where StudentId=:eid";
+$sql="update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,ClassId=:classid, RollId=:roolid,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,Address=:address where StudentId=:eid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':stuname',$stuname,PDO::PARAM_STR);
 $query->bindParam(':stuemail',$stuemail,PDO::PARAM_STR);
 $query->bindParam(':classid',$classid,PDO::PARAM_STR);
+$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
 $query->bindParam(':gender',$gender,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
 $query->bindParam(':stuid',$stuid,PDO::PARAM_STR);
@@ -88,7 +90,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                       <?php
 $eid=$_GET['editid'];
-$sql="SELECT tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.ClassId,tblstudent.Gender,tblstudent.DOB,tblstudent.StuID,tblstudent.FatherName,tblstudent.MotherName,tblstudent.ContactNumber,tblstudent.AltenateNumber,tblstudent.Address,tblstudent.UserName,tblstudent.Password,tblstudent.Image,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:eid";
+$sql="SELECT tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.ClassId,tblstudent.RollId,tblstudent.Gender,tblstudent.DOB,tblstudent.StuID,tblstudent.FatherName,tblstudent.MotherName,tblstudent.ContactNumber,tblstudent.AltenateNumber,tblstudent.Address,tblstudent.UserName,tblstudent.Password,tblstudent.Image,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.id=tblstudent.ClassId where tblstudent.StudentId=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
@@ -124,6 +126,12 @@ foreach($result2 as $row1)
  <?php } ?> 
                         </select>
                       </div>
+
+                      <div class="form-group">
+<label for="exampleInputName1">Roll Id</label>
+<input type="text" name="rollid" value="<?php  echo htmlentities($row->RollId);?>"class="form-control" maxlength="5" required="true" >
+</div>
+
                       <div class="form-group">
                         <label for="exampleInputName1">Gender</label>
                         <select name="gender" value="" class="form-control" required='true'>
